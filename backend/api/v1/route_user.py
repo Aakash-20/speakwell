@@ -9,5 +9,10 @@ router = APIRouter()
 
 @router.post("/users/", response_model=ShowUser, status_code=status.HTTP_201_CREATED)
 def create_user(user: UserCreate, db: Session= Depends(get_db)):
-    user = create_new_user(user=user, db=db)
-    return user
+    try:
+        user = create_new_user(user=user, db=db)
+        return user  
+    except Exception as e:
+            print(repr(e))
+    
+    
