@@ -11,3 +11,10 @@ alembic==1.13.2
 pydantic[email]
 
 passlib[bcrypt]
+
+pytest
+httpx
+
+python-jose
+
+python-multipart
