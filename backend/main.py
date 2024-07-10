@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from core.config import settings
 from api.base import api_router
+# from db.session import Base
+# from db.session import engine
+
 
 def include_router(app):
     app.include_router(api_router)
@@ -13,6 +16,7 @@ def start_application():
 
 app = start_application()
 
+# Base.metadata.create_all(bind=engine)
 
 
 @app.get("/")
