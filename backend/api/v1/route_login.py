@@ -31,7 +31,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     access_token = create_access_token(data={"sub": user.email})
     return {"access_token": access_token, "token_type": "bearer"}
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
 def get_current_user(token: str = Depends(oauth2_scheme), db : Session = Depends(get_db)):
     credentials_exception = HTTPException(
@@ -39,7 +39,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db : Session = Depends
         detail= "Could not validate credential, please login again"
     )
     try:
-        payload = jwt.decode(token, "secret", algorithms=["HS256"])
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
         email : str = payload.get("sub")
         if email is None:
             raise credentials_exception

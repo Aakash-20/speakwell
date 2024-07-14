@@ -10,4 +10,4 @@ class ShowUser(BaseModel): #user defined rewsponse model, we are not getting the
     is_active : bool
 
     class Config():
-        from_attributes = True
+        orm_mode = True

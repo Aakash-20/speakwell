@@ -22,7 +22,7 @@ class ShowBlog(BaseModel):
     created_at: date
 
     class Config():
-        from_attributes = True
+        orm_mode = True
 
 
 
