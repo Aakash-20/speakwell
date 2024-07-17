@@ -1,21 +1,48 @@
-from fastapi import APIRouter, status, Depends, HTTPException
-from typing import List
+from fastapi import APIRouter, status, Depends, HTTPException, Form, UploadFile, File
+from typing import List, Optional
+import os
+from fastapi import Request
 from sqlalchemy.orm import Session
 from db.session import get_db
 from db.models.user import User
+from db.models.blog import Blog
 from api.v1.route_login import get_current_user
 from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
 from db.repository.blog import create_new_blog, retrieve_blog, list_blogs, update_blog_by_id, delete_blog_by_id
+from core.config import settings
+
+UPLOAD_DIR = "upload"
+if not os.path.exists(UPLOAD_DIR):
+    os.makedirs(UPLOAD_DIR)
+
 
 router = APIRouter()
 
-@router.post("/", response_model=ShowBlog, status_code=status.HTTP_201_CREATED)
-def create_blog(blog: CreateBlog, db: Session = Depends(get_db)):
+def save_image_to_db(db, filename, file_path):
+    image = Blog.image(filename=filename, file_path=file_path)
+    db.add(image)
+    db.commit()
+    db.refresh(image)
+    return image
+
+
+@router.post("/", response_model=ShowBlog, status_code=201)
+async def create_blog(request: Request, blog: CreateBlog = Depends(CreateBlog), file: UploadFile = File(None), db: Session = Depends(get_db)):
+    image_url = None
+    if file:
+        image_data = file.file.read()
+        image_path = os.path.join(UPLOAD_DIR, file.filename)
+
+        with open(image_path, "wb") as f:
+            f.write(image_data)
+
+        image_url = f"{request.base_url}images/{file.filename}"
+
     try:
-        blog = create_new_blog(blog=blog, db=db, author_id= 1)
+        blog = create_new_blog(blog=blog, db=db, author_id=1, image_url=image_url)
         return blog
     except Exception as e:
-            print(repr(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/{id}", response_model=ShowBlog)
