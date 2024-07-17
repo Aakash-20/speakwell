@@ -1,12 +1,14 @@
+from typing import Optional
 from sqlalchemy.orm import Session
 from schemas.blog import CreateBlog, UpdateBlog
 from db.models.blog import Blog
 
-def create_new_blog(blog: CreateBlog, db : Session, author_id : int = 1):
+def create_new_blog(blog: CreateBlog, db : Session, author_id : int = 1, image_url: Optional[str] = None):
     blog = Blog(title = blog.title,
                 slug=blog.slug,
                 content=blog.content,
-                author_id=author_id)
+                author_id=author_id,
+                image=image_url)
     db.add(blog)
     db.commit()
     db.refresh(blog)

@@ -7,6 +7,7 @@ class CreateBlog(BaseModel):
     slug: str
     content: Optional[str] = None
 
+
     @root_validator(pre=True)
     def generate_slug(cls, values):
         if 'title' in values:
@@ -20,6 +21,8 @@ class ShowBlog(BaseModel):
     title:str 
     content: Optional[str]
     created_at: date
+    image: Optional[str]
+
 
     class Config():
         orm_mode = True
