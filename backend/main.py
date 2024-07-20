@@ -3,6 +3,8 @@ from core.config import settings
 from api.base import api_router
 from apps.base import app_router
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
 # from db.session import Base
 # from db.session import engine
 
@@ -10,6 +12,10 @@ from fastapi.middleware.cors import CORSMiddleware
 def include_router(app):
     app.include_router(api_router)
     app.include_router(app_router)
+
+
+def configure_staticfiles(app):
+    app.mount("/static", StaticFiles(directory="static/images"), name="static")
 
 
 def start_application():
@@ -22,6 +28,7 @@ def start_application():
         allow_headers=["*"],
     )
     include_router(app)
+    configure_staticfiles(app)
     return app
 
 

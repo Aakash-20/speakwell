@@ -20,4 +20,4 @@ python-jose
 python-multipart
 
 Jinja2
-
+aiofiles

@@ -5,7 +5,7 @@ from datetime import date
 class CreateBlog(BaseModel):
     title: str
     slug: str
-    content: Optional[str] = None
+    content: Optional[str] = ""
 
 
     @root_validator(pre=True)
@@ -21,7 +21,7 @@ class ShowBlog(BaseModel):
     title:str 
     content: Optional[str]
     created_at: date
-    image: Optional[str]
+    image: Optional[str] = ""
 
 
     class Config():

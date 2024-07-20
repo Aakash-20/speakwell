@@ -1,11 +1,24 @@
 from fastapi import APIRouter
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
+from fastapi import Depends   
+from sqlalchemy.orm import Session
+from db.repository.blog import list_blogs, retrieve_blog
+from db.session import get_db
 
 templates = Jinja2Templates(directory="templates")
 router = APIRouter()
 
 @router.get("/")
-def home(request: Request):
-    print(dir(request))
-    return templates.TemplateResponse("blogs/home.html", {"request": request})
+def home(request: Request, db: Session = Depends(get_db)):
+    blogs = list_blogs(db=db)
+    return templates.TemplateResponse(
+        "blogs/home.html", {"request": request, "blogs": blogs}
+    )
+
+@router.get("/app/blog/{id}")
+def blog_detail(request: Request, id: int, db: Session = Depends(get_db)):
+    blog = retrieve_blog(id=id, db=db)
+    return templates.TemplateResponse(
+        "blogs/detail.html", {"request": request, "blog": blog}
+    )
