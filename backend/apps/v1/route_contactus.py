@@ -7,7 +7,7 @@ from db.repository.contactus import create_new_contact
 from schemas.contactus import ContactCreate, ShowContact
 
 router = APIRouter()
-templates = Jinja2Templates(directory="template1")
+templates = Jinja2Templates(directory="template")
 
 @router.get("/contact", response_class=HTMLResponse)
 async def get_contact_form(request: Request):

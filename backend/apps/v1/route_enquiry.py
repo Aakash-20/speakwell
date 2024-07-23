@@ -7,7 +7,7 @@ from db.repository.enquiry import create_new_enquiry
 from schemas.enquiry import CreateEnquiry
 
 router = APIRouter()
-templates = Jinja2Templates(directory="template1")
+templates = Jinja2Templates(directory="template")
 
 @router.get("/enquiry", response_class=HTMLResponse)
 async def get_enquiry_form(request: Request):

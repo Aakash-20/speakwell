@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from db.repository.blog import list_blogs, retrieve_blog
 from db.session import get_db
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
 @router.get("/blog")
