@@ -1,10 +1,9 @@
 from fastapi import APIRouter, status, Depends, HTTPException, Form, UploadFile, File
-from typing import List, Optional
+from typing import List
 import os
 from fastapi import Request
 from sqlalchemy.orm import Session
 from db.session import get_db
-from db.models.user import User
 from db.models.blog import Blog
 from api.v1.route_login import get_current_user
 from schemas.blog import CreateBlog, ShowBlog, UpdateBlog

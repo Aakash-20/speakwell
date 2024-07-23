@@ -3,16 +3,18 @@ from sqlalchemy.orm import Session
 from schemas.blog import CreateBlog, UpdateBlog
 from db.models.blog import Blog
 
-def create_new_blog(blog: CreateBlog, db : Session, author_id : int = 1, image_url: Optional[str] = None):
-    blog = Blog(title = blog.title,
-                slug=blog.slug,
-                content=blog.content,
-                author_id=author_id,
-                image=image_url)
-    db.add(blog)
+def create_new_blog(blog: CreateBlog, db: Session, author_id: int = 1, image_url: Optional[str] = None):
+    new_blog = Blog(
+        title=blog.title,
+        content=blog.content,
+        slug=blog.slug,
+        author_id=author_id,
+        image=image_url
+    )
+    db.add(new_blog)
     db.commit()
-    db.refresh(blog)
-    return blog
+    db.refresh(new_blog)
+    return new_blog
     
 def retrieve_blog(id: int, db: Session):
     blog = db.query(Blog).filter(Blog.id == id).first()
@@ -29,7 +31,6 @@ def update_blog_by_id(id: int, blog: UpdateBlog, db: Session, author_id: int = 1
     if not blog_in_db.author_id == author_id:
         return {"error": f"only the author can modify the blog"}
     blog_in_db.title = blog.title
-    blog_in_db.slug = blog.slug
     blog_in_db.content = blog.content
     db.add(blog_in_db)
     db.commit()
