@@ -4,7 +4,7 @@ import os
 
 router = APIRouter()
 
-@router.get("/whyUs.html", response_class=HTMLResponse)
+@router.get("/whyUs", response_class=HTMLResponse)
 async def get_keyfactor():
     file_path = os.path.join(os.path.dirname(__file__), '/home/harsh/speakwell/speakwell/backend/template1/whyUs.html')
     file_path = os.path.abspath(file_path)

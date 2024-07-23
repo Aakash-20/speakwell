@@ -4,9 +4,10 @@ import os
 
 router = APIRouter()
 
-@router.get("/footer", response_class=HTMLResponse)
-async def get_footer():
-    file_path = os.path.join(os.path.dirname(__file__), '/home/harsh/speakwell/speakwell/backend/template1/footer.html')
+@router.get("/whatsapp", response_class=HTMLResponse)
+async def get_header():
+    # Get the absolute path to the header.html file
+    file_path = os.path.join(os.path.dirname(__file__), '/home/harsh/speakwell/speakwell/backend/template1/header.html')
     file_path = os.path.abspath(file_path)
     
     if not os.path.exists(file_path):
@@ -14,4 +15,3 @@ async def get_footer():
     
     with open(file_path) as f:
         return f.read()
-        

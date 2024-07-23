@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyFactor</title>
-    <link rel="stylesheet" href="http://127.0.0.1:8000/static/keyfactor.css" />
-    <link rel="stylesheet" href="http://127.0.0.1:8000/static/form.css" />
+    <link rel="stylesheet" href="/static/keyfactor.css" />
+    <link rel="stylesheet" href="/static/form.css" />
 </head>
 <body>
     <div id="Header"></div>
@@ -249,19 +249,19 @@
             document.getElementById('overlay').style.display = 'none';
         }
 
-        fetch('header.html')
+        fetch('/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('Header').innerHTML = data;
             });
 
-            fetch('whatsapp.html')
+            fetch('/whatsapp.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('Whatsapp').innerHTML = data;
         });
 
-        fetch('footer.html')
+        fetch('/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('Footer').innerHTML = data;

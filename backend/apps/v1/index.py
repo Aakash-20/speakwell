@@ -4,7 +4,7 @@ import os
 
 router = APIRouter()
 
-@router.get("/index.html", response_class=HTMLResponse)
+@router.get("/index", response_class=HTMLResponse)
 async def get_index():
     # Get the absolute path to the header.html file
     file_path = os.path.join(os.path.dirname(__file__), '/home/harsh/speakwell/speakwell/backend/template1/index.html')

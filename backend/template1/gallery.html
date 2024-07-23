@@ -6,7 +6,7 @@
     <title>Gallery</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://127.0.0.1:8000/static/gallery.css" />
+    <link rel="stylesheet" href="static/gallery.css" />
 </head>
 <body>
     <div id="Header"></div>
@@ -34,19 +34,19 @@
     <div id="Footer"></div>
 
     <script>
-        fetch('header.html')
+        fetch('/header')
           .then(response => response.text())
           .then(data => {
         document.getElementById('Header').innerHTML = data;
           });
 
-          fetch('whatsapp.html')
+          fetch('/whatsapp')
         .then(response => response.text())
         .then(data => {
         document.getElementById('Whatsapp').innerHTML = data;
         });
 
-        fetch('footer.html')
+        fetch('/footer')
           .then(response => response.text())
           .then(data => {
               document.getElementById('Footer').innerHTML = data;
