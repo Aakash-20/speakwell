@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/static/contactUs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="contact">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="containerr">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Plot No, 11, Ambazari Rd, beside Port O Gomez Restaurant,<br> Daga Layout, Gandhi Nagar, Nagpur, Maharashtra 440010</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">07757854042</div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">admissions@starsacademy.in</div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="topic-text">Send us a message</div>
+        <p>If you have any work from me or any types of queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.</p>
+      <form method="post" action="/contactus/contact">
+        <div class="input-box">
+          <select name="branch" required>
+            <option value="" disabled selected>Select Branch</option>
+            <option value="branch1">Branch 1</option>
+            <option value="branch2">Branch 2</option>
+            <option value="branch3">Branch 3</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Enter your Name" required>
+        </div>
+        <div class="input-box">
+          <input type="number" name="phone_no" placeholder="Enter your Phone Number" required>
+        </div>
+        <div class="input-box">
+          <input type="text" name="message" placeholder="Enter your Message" required>
+        </div>
+        <div class="input-box message-box">
+        </div>
+        <div class="button">
+          <input type="submit" value="Send Now">
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+
+  <div class="container map_sec">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="map_inner">
+                <h4>Find Us on Google Map</h4>
+                <p>Speakwell Spoken English Language Classes- Best English And Personality Development Training Institute I Best English Academy</p>
+                <div class="map_bind">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29775.523027252115!2d79.00946707266537!3d21.11494303996961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1ddc78f4fc1%3A0x3d19bd52ea961896!2sSpeakwell%20Spoken%20English%20Language%20Classes-%20Best%20English%20And%20Personality%20Development%20Training%20Institute%20I%20Best%20English%20Academy!5e0!3m2!1sen!2sin!4v1720077364131!5m2!1sen!2sin"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
