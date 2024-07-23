@@ -1104,7 +1104,7 @@
         </script>
 
         <script>
-            fetch('/header')
+
             fetch('/header')
                 .then(response => response.text())
                 .then(data => {
@@ -1117,7 +1117,6 @@
                 document.getElementById('WhyUs').innerHTML = data;
                 });
 
-            fetch('/aboutUs')
             fetch('/aboutUs')
                 .then(response => response.text())
                 .then(data => {
@@ -1132,13 +1131,11 @@
                 });
 
             fetch('/whatsapp')
-            fetch('/whatsapp')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Whatsapp').innerHTML = data;
                 });
 
-            fetch('/footer')
             fetch('/footer')
                 .then(response => response.text())
                 .then(data => {
