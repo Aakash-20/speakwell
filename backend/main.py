@@ -14,8 +14,8 @@ def include_router(app):
     app.include_router(app_router)
 
 
-def configure_staticfiles(app):
-    app.mount("/static", StaticFiles(directory="static/images"), name="static")
+# def configure_staticfiles(app):
+#     app.mount("/static", StaticFiles(directory="static/images"), name="static")
 
 
 def start_application():
@@ -28,7 +28,7 @@ def start_application():
         allow_headers=["*"],
     )
     include_router(app)
-    configure_staticfiles(app)
+    # configure_staticfiles(app)
     return app
 
 
