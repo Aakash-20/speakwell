@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="static/blog2.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="Header"></div>
+
+    <section class="intro-section">
+        <h1>[ Blog's ]</h1>
+    </section>
+
+  <div id="top"></div>
+  <section class="gallery">
+    <div class="row">
+      <ul>
+        <a href="#" class="close"></a>
+        <li><a href="#item01"><img src="https://cdn.dribbble.com/users/545884/screenshots/3981307/lorena2.png" alt=""></a></li>
+        <li><a href="#item02"><img src="https://cdn.dribbble.com/users/545884/screenshots/3892302/contact.png" alt=""></a></li>
+        <li><a href="#item01"><img src="https://cdn.dribbble.com/users/545884/screenshots/4154721/dive--001.png" alt=""></a></li>
+        <li><a href="#item02"><img src="https://cdn.dribbble.com/users/545884/screenshots/4356121/darko--dr.jpg" alt=""></a></li>
+        <li><a href="#item01"><img src="https://cdn.dribbble.com/users/545884/screenshots/3695553/news.png" alt=""></a></li>
+        <li><a href="#item02"><img src="https://cdn.dribbble.com/users/545884/screenshots/4360101/liberosis_--_12.png" alt=""></a></li>
+        <li><a href="#item01"><img src="https://cdn.dribbble.com/users/545884/screenshots/3148799/technical-book.jpg" alt=""></a></li>
+        <li><a href="#item02"><img src="https://cdn.dribbble.com/users/545884/screenshots/2883479/cover.jpg" alt=""></a></li>
+      </ul>
+    </div>
+    <!-- Item 01 -->
+    <div id="item01" class="port">
+      <div class="row">
+        <div class="description">
+          <h1>Item 01</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+        </div>
+        <img src="https://cdn.dribbble.com/users/545884/screenshots/3981307/lorena2.png" alt="">
+      </div>
+    </div>
+    <!-- Item 02 -->
+    <div id="item02" class="port">
+      <div class="row">
+        <div class="description">
+          <h1>Item 02</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+        </div>
+        <img src="https://cdn.dribbble.com/users/545884/screenshots/2883479/cover.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div id="Whatsapp"></div>
+
+  <div id="Footer"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('.gallery ul li a').click(function() {
+        var itemID = $(this).attr('href');
+        $('.gallery ul').addClass('item_open');
+        $(itemID).addClass('item_open');
+        return false;
+      });
+      $('.close').click(function() {
+        $('.port, .gallery ul').removeClass('item_open');
+        return false;
+      });
+      $(".gallery ul li a").click(function() {
+        $('html, body').animate({
+          scrollTop: parseInt($("#top").offset().top)
+        }, 400);
+      });
+    });
+  </script>
+
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('Header').innerHTML = data;
+        });
+
+    fetch('whatsapp.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('Whatsapp').innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('Footer').innerHTML = data;
+        });
+</script>
+</body>
+</html>

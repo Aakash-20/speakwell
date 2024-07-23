@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/gallery.css" />
+</head>
+<body>
+    <div id="Header"></div>
+
+    <section class="intro-section">
+        <h1>[ Gallery ]</h1>
+    </section>
+
+    <div class="gallery">
+        <img src="images/1.jpeg">
+        <img src="images/2.jpeg">
+        <img src="images/3.jpeg">
+        <img src="images/4.jpeg">
+        <img src="images/5.jpeg">
+        <img src="images/6.jpeg">
+        <img src="images/7.jpeg">
+        <img src="images/8.jpeg">
+        <img src="images/9.jpeg">
+        <img src="images/10.JPG">
+        <img src="images/11.JPG">
+    </div>
+
+    <div id="Whatsapp"></div>
+
+    <div id="Footer"></div>
+
+    <script>
+        fetch('/header')
+        fetch('/header')
+          .then(response => response.text())
+          .then(data => {
+        document.getElementById('Header').innerHTML = data;
+          });
+
+          fetch('/whatsapp')
+          fetch('/whatsapp')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('Whatsapp').innerHTML = data;
+        });
+
+        fetch('/footer')
+        fetch('/footer')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('Footer').innerHTML = data;
+          });
+    </script>
+</body>
+</html>
