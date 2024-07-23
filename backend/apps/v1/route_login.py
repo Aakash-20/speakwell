@@ -11,7 +11,7 @@ from pydantic.error_wrappers import ValidationError
 from api.v1.route_login import authenticate_user
 from core.security import create_access_token
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
 @router.get("/register")
