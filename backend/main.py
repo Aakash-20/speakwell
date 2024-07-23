@@ -15,7 +15,7 @@ def include_router(app):
 
 
 def configure_staticfiles(app):
-    app.mount("/static", StaticFiles(directory="template1/css"), name="static")
+    app.mount("/static", StaticFiles(directory="template1"), name="static")
 
     
     
