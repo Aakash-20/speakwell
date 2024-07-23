@@ -34,7 +34,7 @@ def register(request: Request, email: str = Form(...), password: str= Form(...),
 
 @router.get("/login")
 def login(request: Request):
-    return templates.TemplateResponse("auth/login.html", {"request": request})
+    return templates.TemplateResponse("login.html", {"request": request})
 
 
 @router.post("/login")
@@ -47,7 +47,7 @@ def login(request: Request,
     user = authenticate_user(email=email,password=password,db=db)
     if not user:
         errors.append("Incorrect email or password")
-        return templates.TemplateResponse("auth/login.html", {"request": request,"errors":errors})
+        return templates.TemplateResponse("login.html", {"request": request,"errors":errors})
     access_token = create_access_token(data={"sub": email})
     response = responses.RedirectResponse(
             "/?alert=Successfully Logged In", status_code=status.HTTP_302_FOUND

@@ -8,7 +8,7 @@ from db.repository.enquiry import create_new_enquiry, retrieve_enquiry, list_all
 router = APIRouter()
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/enquiry", status_code=status.HTTP_201_CREATED)
 def create_enquiry(enquiry: CreateEnquiry, db: Session = Depends(get_db)):
     try:
         enquiry = create_new_enquiry(enquiry=enquiry, db=db)
@@ -18,7 +18,7 @@ def create_enquiry(enquiry: CreateEnquiry, db: Session = Depends(get_db)):
             print(repr(e))
 
 
-@router.get("/{id}", response_model=ShowEnquiry)
+@router.get("/enquiry/{id}", response_model=ShowEnquiry)
 def get_enquiry(id: int, db: Session = Depends(get_db)):
     try:
         enquiry = retrieve_enquiry(id=id, db=db)
