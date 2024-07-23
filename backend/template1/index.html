@@ -7,10 +7,10 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700,900" rel="stylesheet">
         <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/f2-common.css'>
         <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.min.css'>
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/img.css"/>
-        <link rel="stylesheet" href="css/form.css"/>
-        <link rel="stylesheet" href="css/blog.css">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/static/style.css"/>
+        <link rel="stylesheet" href="http://127.0.0.1:8000/static/img.css"/>
+        <link rel="stylesheet" href="http://127.0.0.1:8000/static/form.css"/>
+        <link rel="stylesheet" href="http://127.0.0.1:8000/static/blog.css">
         <style>
 
         .statistics {
@@ -1104,38 +1104,38 @@
         </script>
 
         <script>
-            fetch('header.html')
+            fetch('/header.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Header').innerHTML = data;
                 });
 
-            fetch('whyUs.html')
+            fetch('/whyUs.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('WhyUs').innerHTML = data;
                 });
 
-            fetch('aboutUs.html')
+            fetch('/aboutUs.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('AboutUs').innerHTML = data;
                 });
 
 
-            fetch('contactUs.html')
+            fetch('/contactUs.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('ContactUs').innerHTML = data;
                 });
 
-            fetch('whatsapp.html')
+            fetch('/whatsapp.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Whatsapp').innerHTML = data;
                 });
 
-            fetch('footer.html')
+            fetch('/footer.html')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Footer').innerHTML = data;

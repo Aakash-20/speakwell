@@ -8,7 +8,7 @@ from db.session import get_db
 templates = Jinja2Templates(directory="templates")
 router = APIRouter()
 
-@router.get("/")
+@router.get("/blog")
 def home(request: Request,alert: Optional[str] = None, db: Session = Depends(get_db)):
     blogs = list_blogs(db=db)
     return templates.TemplateResponse(
