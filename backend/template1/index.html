@@ -1104,13 +1104,13 @@
         </script>
 
         <script>
-            fetch('/header.html')
+            fetch('/header')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Header').innerHTML = data;
                 });
 
-            fetch('/whyUs.html')
+            fetch('/why_us')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('WhyUs').innerHTML = data;
@@ -1123,19 +1123,19 @@
                 });
 
 
-            fetch('/contactUs.html')
+            fetch('/contact')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('ContactUs').innerHTML = data;
                 });
 
-            fetch('/whatsapp.html')
+            fetch('/whatsapp')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Whatsapp').innerHTML = data;
                 });
 
-            fetch('/footer.html')
+            fetch('/footer')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Footer').innerHTML = data;
