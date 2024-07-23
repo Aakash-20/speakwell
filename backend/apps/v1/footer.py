@@ -1,12 +1,14 @@
 from fastapi.responses import HTMLResponse
 from fastapi import APIRouter
+from fastapi.templating import Jinja2Templates
 import os
 
+templates = Jinja2Templates(directory="templates")
 router = APIRouter()
 
-@router.get("/footer.html", response_class=HTMLResponse)
-async def get_footer():
-    file_path = os.path.join(os.path.dirname(__file__), '/home/harsh/speakwell/speakwell/backend/template1/footer.html')
+@router.get("/footer", response_class=HTMLResponse)
+async def get_footer(request : Request):
+    file_path = os.path.join(os.path.dirname(__file__), 'backend\template1\footer.html')
     file_path = os.path.abspath(file_path)
     
     if not os.path.exists(file_path):
