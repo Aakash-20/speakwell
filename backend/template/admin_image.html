@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="/static/table.css">
+    <link rel="stylesheet" href="/static/admin.css">
+  </head>
+  <body>
+    <div class="backend-root">
+      <header>
+        <div class="header-section">
+          <div class="header-content">
+            <div class="header-container logo">
+              <img src="/static/images/swl3.png" class="platform-logo">
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="body-root">
+        <div class="body-section">
+          <div class="body-content">
+            <div class="sidebar">
+              <div class="sidebar-content">
+                <div class="sidebar-container sidebar-menu">
+                  <a href="/admin" class="menu-item"><i class="fas fa-edit menu-icon"></i>Blog's</a>
+                  <a href="/admin_image" class="menu-item"><i class="fas fa-image menu-icon"></i>Image's</a>
+                  <a href="/admin_contactus" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
+                  <a href="/admin_enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
+                  <a href="/" class="menu-item"><i class="fas fa-sign-out-alt menu-icon"></i>Log Out</a>
+                </div>
+              </div>
+            </div>
+            <div class="main">
+              <div class="main-content">
+                <div class="main-container new-blog">
+                  <h2>Post a new Image</h2>
+                  <div class="new-post-form blog">
+                    <form class="new-blog-form">
+                      <div class="form-field field-1 short">
+                        <label for="post-thumbnail">Post Image</label>
+                        <input id="post-thumbnail" type="file" name="post-thumbnail">
+                      </div>
+                      <div class="new-post-actions">
+                        <div class="button-container">
+                          <button class="publish" type="submit">Publish</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <form action="" method="GET" name="listForm" class="form scrollX">
+                <div class="formHeader row">
+                    <h2 class="text-1 fl">Image's</h2>
+                </div>
+                <div class="table">
+                    <div class="row bg-1">
+                        <div class="cell cell-100p text-fff">IMAGE</div>
+                        <div class="cell cell-10 text-center text-fff">DATE</div>
+                        <div class="cell cell-100 text-center text-fff">EDIT</div>
+                    </div>
+                    <ul>
+                        <li class="row">
+                            <div class="cell cell-100p"><a href="">PRODUCT 01</a></div>
+                            <div class="cell cell-10 text-center"><a href="">10/8/2024</a></div>
+                            <div class="cell cell-100 text-center">
+                                <div class="edit-remove">
+                                    <a href="" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="row">
+                            <div class="cell cell-100p"><a href="">PRODUCT 02</a></div>
+                            <div class="cell cell-10 text-center"><a href="">15/10/2024</a></div>
+                            <div class="cell cell-100 text-center">
+                                <div class="edit-remove">
+                                    <a href="" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
