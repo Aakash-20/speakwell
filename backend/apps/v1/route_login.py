@@ -50,7 +50,7 @@ def login(request: Request,
         return templates.TemplateResponse("login.html", {"request": request,"errors":errors})
     access_token = create_access_token(data={"sub": email})
     response = responses.RedirectResponse(
-            "/?alert=Successfully Logged In", status_code=status.HTTP_302_FOUND
+            "/admin?alert=Successfully Logged In", status_code=status.HTTP_302_FOUND
         )
     response.set_cookie(key="access_token",value=f"Bearer {access_token}",httponly=True)
     return response

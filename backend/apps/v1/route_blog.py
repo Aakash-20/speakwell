@@ -12,12 +12,12 @@ router = APIRouter()
 def home(request: Request,alert: Optional[str] = None, db: Session = Depends(get_db)):
     blogs = list_blogs(db=db)
     return templates.TemplateResponse(
-        "blogs/home.html", {"request": request, "blogs": blogs,"alert":alert}
+        "blog2.html", {"request": request, "blogs": blogs,"alert":alert}
     )
 
-@router.get("/app/blog/{id}")
+@router.get("/blog/{id}")
 def blog_detail(request: Request, id: int, db: Session = Depends(get_db)):
     blog = retrieve_blog(id=id, db=db)
     return templates.TemplateResponse(
-        "blogs/detail.html", {"request": request, "blog": blog}
+        "blog.html", {"request": request, "blog": blog}
     )

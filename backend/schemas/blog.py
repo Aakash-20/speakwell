@@ -4,28 +4,23 @@ from datetime import date
 
 class CreateBlog(BaseModel):
     title: str
-    slug: str
     content: Optional[str] = ""
+    slug: Optional[str] = ""
 
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.title and not self.slug:
+            self.slug = self.title.replace(" ", "-").lower()
 
-    @root_validator(pre=True)
-    def generate_slug(cls, values):
-        if 'title' in values:
-            values["slug"] = values.get("title").replace(" ", "-").lower()
-        return values
-    
 class UpdateBlog(CreateBlog):
     pass
-    
+
 class ShowBlog(BaseModel):
-    title:str 
+    title: str
     content: Optional[str]
+    slug: str
     created_at: date
     image: Optional[str] = ""
 
-
-    class Config():
+    class Config:
         orm_mode = True
-
-
-

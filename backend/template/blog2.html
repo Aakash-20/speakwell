@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="static/blog2.css">
+  <link rel="stylesheet" href="/static/blog2.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -74,23 +74,23 @@
   </script>
 
 <script>
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('Header').innerHTML = data;
-        });
+    fetch('/header')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('Header').innerHTML = data;
+    });
 
-    fetch('whatsapp.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('Whatsapp').innerHTML = data;
-        });
+    fetch('/whatsapp')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('Whatsapp').innerHTML = data;
+    });
 
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
+    fetch('/footer')
+      .then(response => response.text())
+      .then(data => {
         document.getElementById('Footer').innerHTML = data;
-        });
+     });
 </script>
 </body>
 </html>
