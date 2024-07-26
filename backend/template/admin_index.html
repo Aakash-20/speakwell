@@ -37,18 +37,18 @@
                 <div class="main-container new-blog">
                   <h2>Post a new blog</h2>
                   <div class="new-post-form blog">
-                    <form class="new-blog-form">
+                    <form class="new-blog-form" action="/submit-blog" method="POST" enctype="multipart/form-data">
                       <div class="form-field field-1 medium">
                         <label for="post-title">Blog Title</label>
-                        <input id="post-title" type="text" name="post-title">
+                        <input id="post-title" type="text" name="title">
                       </div>
                       <div class="form-field field-2 medium">
                         <label for="post-description">Blog Description</label>
-                        <textarea id="post-description" type="text" rows="3" name="post-description"></textarea>
+                        <textarea id="post-description" type="text" rows="4" name="content"></textarea>
                       </div>
                       <div class="form-field field-3 short">
                         <label for="post-thumbnail">Blog Thumbnail</label>
-                        <input id="post-thumbnail" type="file" name="post-thumbnail">
+                        <input id="post-thumbnail" type="file" name="image">
                       </div>
                       <div class="new-post-actions">
                         <div class="button-container">
@@ -59,7 +59,7 @@
                   </div>
                 </div>
               </div>
-              <form action="" method="GET" name="listForm" class="form scrollX">
+              <form action="/blog" method="GET" name="listForm" class="form scrollX">
                 <div class="formHeader row">
                     <h2 class="text-1 fl">Blog's</h2>
                 </div>
