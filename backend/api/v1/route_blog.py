@@ -10,12 +10,13 @@ from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
 from db.repository.blog import create_new_blog, retrieve_blog, list_blogs, update_blog_by_id, delete_blog_by_id
 from core.config import settings
 
-UPLOAD_DIR = "upload"
+UPLOAD_DIR = "static/images"
 if not os.path.exists(UPLOAD_DIR):
     os.makedirs(UPLOAD_DIR)
 
 
 router = APIRouter()
+
 
 def save_image_to_db(db, filename, file_path):
     image = Blog.image(filename=filename, file_path=file_path)
@@ -55,7 +56,7 @@ def get_blog(id: int, db: Session = Depends(get_db)):
             print(repr(e))
 
 
-@router.get("", response_model=List[ShowBlog])
+@router.get("/", response_model=List[ShowBlog])
 def get_all_active_blogs(db: Session = Depends(get_db)):
     try:
         blogs = list_blogs(db=db)

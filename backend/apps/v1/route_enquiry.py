@@ -9,9 +9,11 @@ from schemas.enquiry import CreateEnquiry
 router = APIRouter()
 templates = Jinja2Templates(directory="template")
 
+
 @router.get("/enquiry", response_class=HTMLResponse)
 async def get_enquiry_form(request: Request):
     return templates.TemplateResponse("keyfactor.html", {"request": request})
+
 
 @router.post("/enquiry", response_class=HTMLResponse)
 async def submit_enquiry_form(

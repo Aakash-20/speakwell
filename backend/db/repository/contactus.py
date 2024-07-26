@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from db.models.contactus import Contact
 from schemas.contactus import ContactCreate
 
+
 def create_new_contact(contact: ContactCreate, db: Session):
     db_contact = Contact(
                 name=contact.name,
@@ -13,3 +14,7 @@ def create_new_contact(contact: ContactCreate, db: Session):
     db.commit()
     db.refresh(db_contact)
     return db_contact
+
+
+def get_all_contacts(db: Session):
+    return db.query(Contact).all()

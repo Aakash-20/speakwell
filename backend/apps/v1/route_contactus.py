@@ -3,8 +3,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
-from db.repository.contactus import create_new_contact
-from schemas.contactus import ContactCreate, ShowContact
+from db.repository.contactus import create_new_contact, get_all_contacts
+from schemas.contactus import ContactCreate
 
 router = APIRouter()
 templates = Jinja2Templates(directory="template")
@@ -25,13 +25,13 @@ async def submit_contact_form(
     contact_data = ContactCreate(branch=branch, name=name, phone_no=phone_no, message=message)
     try:
         contact = create_new_contact(contact=contact_data, db=db)
-        return templates.TemplateResponse(
-            "contactUs.html",
+        return templates.TemplateResponse("contactUs.html",
             {"request": request, "success_message": "Contact information submitted successfully"}
         )
     except Exception as e:
         print(repr(e))
-        return templates.TemplateResponse(
-            "contactUs.html",
+        return templates.TemplateResponse("contactUs.html",
             {"request": request, "error_message": "An error occurred while submitting your information"}
         )
+    
+

@@ -2,6 +2,7 @@ from typing import Optional
 from pydantic import BaseModel, root_validator
 from datetime import date
 
+
 class CreateBlog(BaseModel):
     title: str
     content: Optional[str] = ""
@@ -12,8 +13,10 @@ class CreateBlog(BaseModel):
         if self.title and not self.slug:
             self.slug = self.title.replace(" ", "-").lower()
 
+
 class UpdateBlog(CreateBlog):
     pass
+
 
 class ShowBlog(BaseModel):
     title: str
