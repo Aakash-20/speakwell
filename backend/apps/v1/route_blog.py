@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Request, Depends, Form, File, UploadFile, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse 
-from typing import List
+from typing import Optional
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from schemas.blog import CreateBlog, ShowBlog
-from db.repository.blog import retrieve_blog, create_new_blog, delete_blog_by_id
+from schemas.blog import CreateBlog
+from db.repository.blog import create_new_blog, delete_blog_by_id, list_blogs, retrieve_blog
 from db.session import get_db
 from api.v1.route_login import get_current_user
 import os
@@ -17,9 +17,44 @@ UPLOAD_DIR = "static/images"
 
 
 @router.get("/blog", response_class=HTMLResponse)
-async def read_item(request: Request):
-    return templates.TemplateResponse("blog.html", {"request": request, "message": "success"})
+async def read_item(request: Request, message: Optional[str] = None, db: Session = Depends(get_db)):
+    try:
+        blogs = list_blogs(db=db)
+        blog_list = [
+            {
+                "id": blog.id,
+                "image": blog.image,
+                "title": blog.title,
+                "content": blog.content
+            }
+            for blog in blogs
+        ]
+        # print("Blogs:", blogs)
+        return templates.TemplateResponse("blog.html", {"request": request, "blogs": blog_list})
+    except HTTPException as e:
+        return templates.TemplateResponse("error.html", {"request": request, "message": str(e.detail)})
+    except Exception as e:
+        print(f"Error retrieving blogs: {str(e)}")
+        return templates.TemplateResponse(
+            "error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
+        )
 
+
+@router.get("/blog/{id}", response_class=HTMLResponse)
+async def read_blog(request: Request, id: int, db: Session = Depends(get_db)):
+    try:
+        blog = retrieve_blog(db, id)
+        print("Blogs:", blog)
+        if blog is None:
+            raise HTTPException(status_code=404, detail="Blog not found")
+        return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog})
+    except HTTPException as e:
+        return templates.TemplateResponse("error.html", {"request": request, "message": str(e.detail)})
+    except Exception as e:
+        print(f"Error retrieving blog: {str(e)}")
+        return templates.TemplateResponse(
+            "error.html", {"request": request, "message": f"Error retrieving blog: {str(e)}"}
+        )
 
 @router.get("/blog2", response_class=HTMLResponse)
 async def read_item(request: Request):

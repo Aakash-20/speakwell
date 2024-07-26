@@ -1,3 +1,4 @@
+<!-- templates/blog.html -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,58 +12,35 @@
         <link rel="stylesheet" href="/static/blog.css">
     </head>
     <body>
-
         <div class="contain">
             <div class="wrap">
-
+                {% for blog in blogs %}
                 <div class="slide">
                     <div class="slide-img">
-                        <img src="https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/letter-a.jpg" alt="">
+                        <img src="{{ blog.image }}" alt="">
                     </div>
-
                     <div class="slide-content">
-                        <h2>Daily Design Inspiration</h2>
-                        <p>Part of the Daily Design Inspiration series that started it all on Abduzeedo. This is where you'll find the most interesting things/finds/work curated by one of us to simply inspire your day.</p>
-                        <a method="GET" href="/blog">Read More</a>
+                        <h2>{{ blog.title }}</h2>
+                        <p>{{ blog.content }}</p>
+                        <a href="/blog/{{ blog.id }}">Read More</a>
                         <div class="button">
                             <div class="btn button-left">
                                 <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
                             </div>
                             <div class="btn button-right">
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </div>                            
-                        </div>
-                    </div>   
-                </div>
-
-
-                <div class="slide">
-                    <div class="slide-img">
-                        <img src="https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/action.jpg" alt="">
-                    </div>
-
-                    <div class="slide-content">
-                        <h2>Wallpaper of the week</h2>
-                        <p>It's been a little while since our last WPW; following up our comeback with the Wallpaper of the Week series, it's crazy to imagine there's more than 350+ wallpapers available to download for your different...</p>
-                        <a method="GET" href="/blog">Read More</a>
-                        <div class="button">
-                            <div class="btn button-left">
-                                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
                             </div>
-                            <div class="btn button-right 2">
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </div>                            
                         </div>
-                    </div>  
+                    </div>
                 </div>
-
+                {% endfor %}               
             </div>
         </div>
 
         <script>
-        var slide       = document.querySelectorAll('.slide'),
-            button      = document.querySelectorAll('.btn'),
-            current     = 0;
+        var slide = document.querySelectorAll('.slide'),
+            button = document.querySelectorAll('.btn'),
+            current = 0;
         
         slide[current].style.zIndex = 2;
         button[0].classList.add('inactive');
@@ -70,10 +48,10 @@
         
         button = document.querySelectorAll('.btn:not(.inactive');
         
-        for (element = 0; element < button.length; element++) {
+        for (var element = 0; element < button.length; element++) {
             button[element].addEventListener('click', function() {
         
-                for (i=0; i < slide.length; i++) {
+                for (var i = 0; i < slide.length; i++) {
                     document.querySelectorAll('.slide-img')[i].classList.add('active');
                     document.querySelectorAll('.button')[i].style.opacity = "0";
                     document.querySelectorAll('.slide-content h2')[i].classList.add("active");
@@ -84,23 +62,23 @@
                 if (this.classList.contains('button-right')) {
                     current++;
                     if (current > slide.length - 1) {
-                        current = slide.length - 1
+                        current = slide.length - 1;
                     }
                 }
                 if (this.classList.contains('button-left')) {
                     current--;
                     if (current < 0) {
-                        current = 0
+                        current = 0;
                     }
                 }
         
                 setTimeout(function() {
-                    for (e=0; e < slide.length; e++) {
+                    for (var e = 0; e < slide.length; e++) {
                         slide[e].style.zIndex = "0";
                     }
                     slide[current].style.zIndex = "2";
         
-                    for (i=0; i <slide.length; i++) {
+                    for (var i = 0; i < slide.length; i++) {
                         document.querySelectorAll('.slide-img')[i].classList.remove('active');
                         document.querySelectorAll('.button')[i].style.opacity = "1";
                         document.querySelectorAll('.slide-content h2')[i].classList.remove("active");
