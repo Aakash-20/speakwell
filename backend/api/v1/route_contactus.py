@@ -6,6 +6,7 @@ from db.repository.contactus import create_new_contact
 
 router = APIRouter()
 
+
 @router.post("/contacts/", response_model=ShowContact, status_code=status.HTTP_201_CREATED)
 def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
     try:

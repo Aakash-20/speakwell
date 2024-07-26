@@ -26,18 +26,23 @@
                 <div class="sidebar-container sidebar-menu">
                   <a href="/admin" class="menu-item"><i class="fas fa-edit menu-icon"></i>Blog's</a>
                   <a href="/admin_image" class="menu-item"><i class="fas fa-image menu-icon"></i>Image's</a>
-                  <a href="/admin_contactus" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
-                  <a href="/admin_enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
+                  <a href="/admin/contact" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
+                  <a href="/admin/enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
                   <a href="/" class="menu-item"><i class="fas fa-sign-out-alt menu-icon"></i>Log Out</a>
                 </div>
               </div>
             </div>
             <div class="main">
               <div class="main-content">
+                {% if message %}
+                <div class="alert">
+                  {{ message }}
+                </div>
+                {% endif %}
                 <div class="main-container new-blog">
                   <h2>Post a new blog</h2>
                   <div class="new-post-form blog">
-                    <form class="new-blog-form" action="/submit-blog" method="POST" enctype="multipart/form-data">
+                    <form class="new-blog-form" action="/admin/create-blog" method="POST" enctype="multipart/form-data">
                       <div class="form-field field-1 medium">
                         <label for="post-title">Blog Title</label>
                         <input id="post-title" type="text" name="title">
@@ -48,7 +53,7 @@
                       </div>
                       <div class="form-field field-3 short">
                         <label for="post-thumbnail">Blog Thumbnail</label>
-                        <input id="post-thumbnail" type="file" name="image">
+                        <input id="post-thumbnail" type="file" name="file" accept="image/*">
                       </div>
                       <div class="new-post-actions">
                         <div class="button-container">
@@ -59,7 +64,7 @@
                   </div>
                 </div>
               </div>
-              <form action="/blog" method="GET" name="listForm" class="form scrollX">
+              <form method="GET" action="/admin"  name="listForm" class="form scrollX">
                 <div class="formHeader row">
                     <h2 class="text-1 fl">Blog's</h2>
                 </div>
@@ -70,24 +75,18 @@
                         <div class="cell cell-100 text-center text-fff">EDIT</div>
                     </div>
                     <ul>
+                        {% for blog in blogs %}
                         <li class="row">
-                            <div class="cell cell-100p"><a href="#">PRODUCT 01</a></div>
-                            <div class="cell cell-10 text-center"><a href="#">10/8/2024</a></div>
-                            <div class="cell cell-100 text-center">
-                                <div class="edit-remove">
-                                    <a href="" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
-                                </div>
+                          <div class="cell cell-100p">{{ blog.title }}</div>
+                          <div class="cell cell-10 text-center">{{ blog.created_at.strftime('%d/%m/%Y') }}</div>
+                          <div class="cell cell-100 text-center">
+                            <div class="edit-remove">
+                              <form method="POST" action="/admin/delete-blog/{{blog.id}}"  style="display: inline;">
+                                <button type="submit" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it?')"></button>
+                              </form>
                             </div>
                         </li>
-                        <li class="row">
-                            <div class="cell cell-100p"><a href="#">PRODUCT 02</a></div>
-                            <div class="cell cell-10 text-center"><a href="#">15/10/2024</a></div>
-                            <div class="cell cell-100 text-center">
-                                <div class="edit-remove">
-                                    <a href="" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
-                                </div>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </form>

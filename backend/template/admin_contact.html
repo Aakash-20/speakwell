@@ -26,40 +26,38 @@
                 <div class="sidebar-container sidebar-menu">
                   <a href="/admin" class="menu-item"><i class="fas fa-edit menu-icon"></i>Blog's</a>
                   <a href="/admin_image" class="menu-item"><i class="fas fa-image menu-icon"></i>Image's</a>
-                  <a href="/admin_contactus" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
-                  <a href="/admin_enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
+                  <a href="/admin/contact" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
+                  <a href="/admin/enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
                   <a href="/" class="menu-item"><i class="fas fa-sign-out-alt menu-icon"></i>Log Out</a>
                 </div>
               </div>
             </div>
             <div class="main">
               <div class="main-content">
-                <div class="main-container new-blog">
-                  <h2>CONTACT US</h2>
-                </div>
-              </div>
-                <div class="table">
+                <form method="GET" action="/admin/contacts"  name="listForm" class="form scrollX">
+                  <div class="main-container new-blog">
+                    <h2>CONTACT US</h2>
+                  </div>
+                  <div class="table">
                     <div class="row bg-1">
-                        <div class="cell cell-100p text-fff">NAME</div>
-                        <div class="cell cell-20 text-fff">PHONE NO.</div>
-                        <div class="cell cell-10 text-center text-fff">MESSAGE</div>
-                        <div class="cell cell-100 text-center text-fff">BRANCH</div>
+                      <div class="cell cell-100p text-fff">NAME</div>
+                      <div class="cell cell-20 text-fff">PHONE NO.</div>
+                      <div class="cell cell-10 text-center text-fff">MESSAGE</div>
+                      <div class="cell cell-100 text-center text-fff">BRANCH</div>
                     </div>
                     <ul>
-                        <li class="row">
-                            <div class="cell cell-100p"><a href="">harsh</a></div>
-                            <div class="cell cell-20"><a href="">0123456789</a></div>
-                            <div class="cell cell-10 text-center"><a href="">ABC</a></div>
-                            <div class="cell cell-100 text-center"><a href="">XYZ</a></div>
-                        </li>
-                        <li class="row">
-                            <div class="cell cell-100p"><a href="">HARSH</a></div>
-                            <div class="cell cell-20"><a href="">0123456789</a></div>
-                            <div class="cell cell-10 text-center"><a href="">ABC</a></div>
-                            <div class="cell cell-100 text-center"><a href="">XYZ</a></div>
-                        </li>
+                      {% for contact in contacts %}
+                      <li class="row">
+                        <div class="cell cell-100p">{{ contact.name }}</div>
+                        <div class="cell cell-20">{{ contact.phone_no }}</div>
+                        <div class="cell cell-10 text-center">{{ contact.message }}</div>
+                        <div class="cell cell-100 text-center">{{ contact.branch }}</div>
+                      </li>
+                      {% endfor %}
                     </ul>
-                </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

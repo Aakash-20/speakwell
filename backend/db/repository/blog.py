@@ -1,5 +1,6 @@
 from typing import Optional
 from sqlalchemy.orm import Session
+from sqlalchemy import desc
 from schemas.blog import CreateBlog, UpdateBlog
 from db.models.blog import Blog
 
@@ -21,7 +22,7 @@ def retrieve_blog(id: int, db: Session):
     return blog
 
 def list_blogs(db:Session):
-    blogs = db.query(Blog).filter(Blog.is_active == True).all()
+    blogs = db.query(Blog).order_by(desc(Blog.created_at)).all()
     return blogs
 
 def update_blog_by_id(id: int, blog: UpdateBlog, db: Session, author_id: int = 1):
@@ -38,10 +39,10 @@ def update_blog_by_id(id: int, blog: UpdateBlog, db: Session, author_id: int = 1
     
 def delete_blog_by_id(id : int, db : Session, author_id : int):
     blog_in_db = db.query(Blog).filter(Blog.id == id)
-    if not blog_in_db.first():
-        return{"error": f"could not find blog with the id {id}"}
-    if not blog_in_db.first().author_id == author_id:
+    if not blog_in_db:
+        return {"error": f"Could not find blog with the id {id}"}
+    if blog_in_db.author_id != author_id:
         return {"error": "Only the author can delete the blog"}
-    blog_in_db.delete()
+    db.delete(blog_in_db)
     db.commit()
     return{"msg": f"Deleted blog with id {id}"}

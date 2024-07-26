@@ -14,9 +14,11 @@ from core.security import create_access_token
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
+
 @router.get("/register")
 def register(request: Request):
     return templates.TemplateResponse("auth/register.html",{"request":request})
+
 
 @router.post("/register")
 def register(request: Request, email: str = Form(...), password: str= Form(...), db: Session = Depends(get_db)):
