@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "message": "success"})
+    return templates.TemplateResponse("admin_index.html", {"request": request, "message": "success"})
 
 @router.get("/aboutUs", response_class=HTMLResponse)
 async def read_item(request: Request):
