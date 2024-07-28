@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request, Depends, Form, status
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse,RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
@@ -25,10 +25,8 @@ async def submit_contact_form(
     contact_data = ContactCreate(branch=branch, name=name, phone_no=phone_no, message=message)
     try:
         contact = create_new_contact(contact=contact_data, db=db)
-        return templates.TemplateResponse(
-            "contactUs.html",
-            {"request": request, "success_message": "Contact information submitted successfully"}
-        )
+        return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+        
     except Exception as e:
         print(repr(e))
         return templates.TemplateResponse(
