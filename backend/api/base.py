@@ -10,6 +10,6 @@ api_router.include_router(route_blog.router, prefix="/blogs", tags=["blogs"])
 api_router.include_router(route_login.router, prefix="/auth", tags=["token"])
 api_router.include_router(route_enquiry.router, prefix="/enquiry", tags=["enquiry"])
 api_router.include_router(route_contactus.router, prefix="/contactus", tags=["contact-us"])
-api_router.include_router(route_contactus.router, prefix="/image", tags=["image"])
+api_router.include_router(route_image.router, prefix="/image", tags=["image"])
 
 # api_router.include_router(route_review.router, prefix="/review", tags=["review"])

@@ -13,7 +13,10 @@ import os
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
-UPLOAD_DIR = "static/images"
+
+UPLOAD_DIR = "template/blog/images"
+if not os.path.exists(UPLOAD_DIR):
+    os.makedirs(UPLOAD_DIR)
 
 
 @router.get("/blog", response_class=HTMLResponse)
@@ -29,7 +32,6 @@ async def read_item(request: Request, message: Optional[str] = None, db: Session
             }
             for blog in blogs
         ]
-        # print("Blogs:", blogs)
         return templates.TemplateResponse("blog.html", {"request": request, "blogs": blog_list})
     except HTTPException as e:
         return templates.TemplateResponse("error.html", {"request": request, "message": str(e.detail)})
@@ -56,6 +58,7 @@ async def read_blog(request: Request, id: int, db: Session = Depends(get_db)):
             "error.html", {"request": request, "message": f"Error retrieving blog: {str(e)}"}
         )
 
+
 @router.get("/blog2", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("blog2.html", {"request": request, "message": "success"})
@@ -75,7 +78,7 @@ async def create_blog_post(
         image_path = os.path.join(UPLOAD_DIR, file.filename)
         with open(image_path, "wb") as f:
             f.write(image_data)
-        image_url = f"/static/images/{file.filename}"
+        image_url = f"template/blog/images{file.filename}"
 
     try:
         blog = CreateBlog(title=title, content=content)
