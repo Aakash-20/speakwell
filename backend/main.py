@@ -15,6 +15,12 @@ def include_router(app):
 def configure_staticfiles(app):
     app.mount("/static", StaticFiles(directory="template/css"), name="static")
 
+    app.mount("/images", StaticFiles(directory="template/images"), name="images")
+
+    app.mount("/background", StaticFiles(directory="template/background"), name="background")
+
+
+
 
 def start_application():
     app = FastAPI(title=settings.PROJECT_TITLE, description=settings.PROJECT_DESCRIPTION, version=settings.PROJECT_VERSION)
