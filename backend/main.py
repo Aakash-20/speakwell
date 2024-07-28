@@ -4,9 +4,7 @@ from api.base import api_router
 from apps.base import app_router
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-
-# from db.session import Base
-# from db.session import engine
+from fastapi.middleware.gzip import GZipMiddleware
 
 
 def include_router(app):
@@ -17,12 +15,10 @@ def include_router(app):
 def configure_staticfiles(app):
     app.mount("/static", StaticFiles(directory="template1/css"), name="static")
 
-    
-    
-
 
 def start_application():
     app = FastAPI(title=settings.PROJECT_TITLE, description=settings.PROJECT_DESCRIPTION, version=settings.PROJECT_VERSION)
+    app.add_middleware(GZipMiddleware, minimum_size=1000)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -36,5 +32,3 @@ def start_application():
 
 
 app = start_application()
-
-# Base.metadata.create_all(bind=engine)
