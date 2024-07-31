@@ -1,4 +1,4 @@
-from apps.v1 import route_blog, route_login, route_contactus, route_enquiry, route_index, route_admin
+from apps.v1 import route_blog, route_login, route_contactus, route_enquiry, route_index, route_admin, route_image
 from fastapi import APIRouter
 
 
@@ -11,6 +11,7 @@ app_router.include_router(route_contactus.router,include_in_schema=False)
 app_router.include_router(route_enquiry.router, include_in_schema=False)
 app_router.include_router(route_index.router, include_in_schema=False)
 app_router.include_router(route_admin.router, include_in_schema=False)
+app_router.include_router(route_image.router, include_in_schema=False)
 
 
 
