@@ -3,14 +3,19 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-color: white;
+      background-color: rgb(255, 255, 255);
     }
 
+    .intro {
+      color: rgb(255, 123, 0);
+      font-size: 24px;
+      text-align: center;
+    }
     .slider-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 3%;
+      padding-top: 0%;
     }
 
     .slider-container .container {

@@ -1,16 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyFactor</title>
-    <link rel="stylesheet" href="/static/keyfactor.css" />
-    <link rel="stylesheet" href="/static/form.css" />
-</head>
-<body>
-    <div id="Header"></div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Key Factor</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="admin.css">
 
-    <section class="intro-section">
+    <link rel="stylesheet" href="css/keyfactor.css" />
+    <link rel="stylesheet" href="css/form.css" />
+
+    <link rel="stylesheet" href="css/header.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/footer.css" />
+  </head>
+  <body>
+    <div class="body-root">
+    <div class="body-section">
+
+      <header class="header">
+        <nav class="navbar">
+          <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="keyfactor.html">Key Factors</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog2.html">Blogs</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+            <div class="buttons">
+              <a href="login.html" class="signin">Sign In</a>
+            </div>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="intro-section">
         <h1>[ Key Factors ]</h1>
     </section>
 
@@ -179,64 +207,93 @@
         
     </main>
 
+    <!-- Enquiry Form -->
+    <div class="overlay" id="overlay" onclick="hideEnquiryForm()"></div>
+    <div class="enquiry-form" id="enquiry-form">
+        <div class="enquiry-header">
+            <h2>Enquiry</h2>
+            <button class="exitEnquiryForm" id="exit-enquiry-form" onclick="hideEnquiryForm()">✖</button>
+        </div>
+        <form id="enquiry-form-content" action="sendEmail.#" method="POST">
+            <label for="course">Course:</label>
+            <select id="course" name="course" required>
+               <option value="" disabled selected>Select a course</option>
+               <option value="course1">Institutes For Interview Skill</option>
+               <option value="course2">Group Discussion Class</option>
+               <option value="course3">Training Group Discussion</option>
+               <option value="course4">Tutorials For Group Discussion</option>
+               <option value="course5">Soft Skill Training Center</option>
+               <option value="course6">Language Classes For English Grammer</option>
+               <option value="course7">Tutorials For English Grammer</option>
+               <option value="course8">Tutorials For Interview</option>
+               <option value="course9">Language Classes For Corporate English</option>
+               <option value="course10">Spoken English Workshops</option>
+               <option value="course11">Language Classes For English Conversation</option>
+               <option value="course12">Institutes For Personality Development</option>
+               <option value="course13">Institutes For Communicaton Skill</option>
+               <option value="course14">Language Class English Spoken Certificate Course</option>
+               <option value="course15">Personal Grooming Classes</option>
+               <option value="course16">Institutes For Interview Skill</option>
+               <option value="course17">Interview Technique Training</option>
+               <option value="course18">Personality Development</option>
+               <option value="course19">Communication Training Centres</option>
+               <option value="course20">Public Speaking Institutes</option>
+               <option value="course21">Language Classes</option>
+               <option value="course22">Institutes For Personality Development</option>
+               <option value="course23">Language Classes For English</option>
+            </select>
 
-     <!-- Enquiry Form -->
-     <div class="overlay" id="overlay" onclick="hideEnquiryForm()"></div>
-     <div class="enquiry-form" id="enquiry-form">
-         <div class="enquiry-header">
-             <h2>Enquiry</h2>
-             <button class="exitEnquiryForm" id="exit-enquiry-form" onclick="hideEnquiryForm()">✖</button>
-         </div>
-         {% if success_message %}
-            <p class="success">{{ success_message }}</p>
-         {% elif error_message %}
-            <p class="error">{{ error_message }}</p>
-         {% endif %}
-         <form id="enquiry-form-content" action="/enquiry" method="POST">
-             <label for="course">Course:</label>
-             <select id="course" name="course" required>
-                <option value="" disabled selected>Select a course</option>
-                <option value="course1">Institutes For Interview Skill</option>
-                <option value="course2">Group Discussion Class</option>
-                <option value="course3">Training Group Discussion</option>
-                <option value="course4">Tutorials For Group Discussion</option>
-                <option value="course5">Soft Skill Training Center</option>
-                <option value="course6">Language Classes For English Grammer</option>
-                <option value="course7">Tutorials For English Grammer</option>
-                <option value="course8">Tutorials For Interview</option>
-                <option value="course9">Language Classes For Corporate English</option>
-                <option value="course10">Spoken English Workshops</option>
-                <option value="course11">Language Classes For English Conversation</option>
-                <option value="course12">Institutes For Personality Development</option>
-                <option value="course13">Institutes For Communicaton Skill</option>
-                <option value="course14">Language Class English Spoken Certificate Course</option>
-                <option value="course15">Personal Grooming Classes</option>
-                <option value="course16">Institutes For Interview Skill</option>
-                <option value="course17">Interview Technique Training</option>
-                <option value="course18">Personality Development</option>
-                <option value="course19">Communication Training Centres</option>
-                <option value="course20">Public Speaking Institutes</option>
-                <option value="course21">Language Classes</option>
-                <option value="course22">Institutes For Personality Development</option>
-                <option value="course23">Language Classes For English</option>
-             </select>
- 
-             <label for="customer_name">Name:</label>
-             <input type="text" id="customer_name" name="customer_name" required>
-             
-             <label for="customer_phone">Phone Number:</label>
-             <input type="tel" id="customer_phone" name="customer_phone" required>
-             
-             <label for="text">Enquiry:</label>
-             <textarea id="text" name="text" rows="4" required></textarea>
-             
-             <button type="submit">Submit</button>
-         </form>
-     </div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="enquiry">Enquiry:</label>
+            <textarea id="enquiry" name="enquiry" rows="4" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
-     <div id="Whatsapp"></div>
 
-    <div id="Footer"></div>
+    <div id="Whatsapp"></div>
+
+    <section id="footer">
+      <div class="container">
+          <div class="row text-center text-xs-center text-sm-left text-md-left">
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                  <h5>Quick links</h5>
+                  <ul class="list-unstyled quick-links">
+                    <li><a href="index.html"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                    <li><a href="keyfactor.html"><i class="fa fa-angle-double-right"></i>Key Factor</a></li>
+                    <li><a href="gallery.html"><i class="fa fa-angle-double-right"></i>Gallery</a></li>
+                    <li><a href="blog2.html"><i class="fa fa-angle-double-right"></i>Blog's</a></li>
+                    <li><a href="contactUs.html"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                  <ul class="list-unstyled list-inline social text-center">
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+              </div>
+              </hr>
+          </div>	
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                  <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+              </div>
+              </hr>
+          </div>	
+      </div>
+  </section>
+
+    </div>
+    </div>
 
     <script>
         function showEnquiryForm() {
@@ -249,24 +306,12 @@
             document.getElementById('overlay').style.display = 'none';
         }
 
-        fetch('/header')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('Header').innerHTML = data;
-            });
-
-            fetch('/whatsapp')
+            fetch('whatsapp.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('Whatsapp').innerHTML = data;
         });
-
-        fetch('/footer')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('Footer').innerHTML = data;
-            });
     </script>
 
-</body>
+  </body>
 </html>

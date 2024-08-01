@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8">
     <title>Admin Login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="admin.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
@@ -127,23 +128,28 @@
             }
         }
     </style>
-</head>
-<body>
-    <div class="container flex">
-        <div class="login-page flex">
-            <div class="text">
-                <img src="background/swl3.png" alt="Image">
-            </div>
-            <form method="post" action="/login">
-                <h1>Admin Login</h1>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <div class="link">
-                    <button type="submit" class="login">Login</button><br>
+  </head>
+  <body>
+    <div class="body-root">
+    <div class="body-section">
+        <div class="container flex">
+            <div class="login-page flex">
+                <div class="text">
+                    <img src="background/swl3.png" alt="Image">
                 </div>
-                <hr>
-            </form>
+                <form action="#">
+                    <h1>Admin Login</h1>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <div class="link">
+                        <button type="submit" class="login">Login</button><br>
+                    </div>
+                    <hr>
+                </form>
+            </div>
         </div>
     </div>
-</body>
+    </div>
+
+  </body>
 </html>
