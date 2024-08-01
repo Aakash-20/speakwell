@@ -5,6 +5,7 @@ from typing import Optional
 from db.repository.contactus import get_all_contacts
 from db.repository.enquiry import list_all_enquiry
 from db.repository.blog import list_blogs
+from db.repository.image import get_all_images
 from sqlalchemy.orm import Session
 from db.session import get_db
 
@@ -40,5 +41,6 @@ async def list_contacts(request: Request, db: Session = Depends(get_db)):
     
 
 @router.get("/admin_image", response_class=HTMLResponse)
-async def read_item(request: Request):
-    return templates.TemplateResponse("admin_image.html", {"request": request, "message": "success"})
+async def fetch_all_images(request: Request, db: Session = Depends(get_db)):
+    images = get_all_images(db=db)
+    return templates.TemplateResponse("admin_image.html", {"request": request, "images": images})

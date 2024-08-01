@@ -10,7 +10,8 @@ from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
 from db.repository.blog import create_new_blog, retrieve_blog, list_blogs, update_blog_by_id, delete_blog_by_id
 from core.config import settings
 
-UPLOAD_DIR = "static/images"
+
+UPLOAD_DIR = "template/blog/images"
 if not os.path.exists(UPLOAD_DIR):
     os.makedirs(UPLOAD_DIR)
 
