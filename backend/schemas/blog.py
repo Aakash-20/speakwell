@@ -1,6 +1,6 @@
 from typing import Optional
-from pydantic import BaseModel, root_validator
-from datetime import date
+from pydantic import BaseModel
+from datetime import datetime
 
 
 class CreateBlog(BaseModel):
@@ -19,11 +19,12 @@ class UpdateBlog(CreateBlog):
 
 
 class ShowBlog(BaseModel):
+    id: int
     title: str
-    content: Optional[str]
-    slug: str
-    created_at: date
-    image: Optional[str] = ""
+    content: str
+    author_id: int
+    created_at: datetime
+    image: str | None
 
     class Config:
         orm_mode = True

@@ -20,8 +20,6 @@ def configure_staticfiles(app):
     app.mount("/background", StaticFiles(directory="template/background"), name="background")
 
 
-
-
 def start_application():
     app = FastAPI(title=settings.PROJECT_TITLE, description=settings.PROJECT_DESCRIPTION, version=settings.PROJECT_VERSION)
     app.add_middleware(GZipMiddleware, minimum_size=1000)
