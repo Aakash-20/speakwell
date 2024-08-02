@@ -81,10 +81,8 @@
                           <div class="cell cell-10 text-center">{{ blog.created_at.strftime('%d/%m/%Y') }}</div>
                           <div class="cell cell-100 text-center">
                             <div class="edit-remove">
-                              <form method="POST" action="/admin/delete-blog/{{blog.id}}"  style="display: inline;">
-                                <button type="submit" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it?')"></button>
-                              </form>
-                            </div>
+                              <a href="/delete/{{blog.id}}" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
+                          </div>
                         </li>
                         {% endfor %}
                     </ul>

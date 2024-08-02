@@ -56,3 +56,15 @@ def delete_blog_by_id(id: int, db: Session, author_id: int) -> Dict[str, str]:
     db.delete(blog_in_db)
     db.commit()
     return {"msg": f"Deleted blog with id {id}"}
+
+
+def save_image_to_db(db, filename, file_path):
+    image = Blog.image(filename=filename, file_path=file_path)
+    db.add(image)
+    db.commit()
+    db.refresh(image)
+    return image
+
+
+def is_admin(user_id: int) -> bool:
+    return user_id == 1

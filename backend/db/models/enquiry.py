@@ -6,8 +6,8 @@ class Enquiry(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     course = Column(String, nullable=False)
-    customer_name = Column(String, nullable=False, unique=True)
-    customer_phone = Column(BIGINT, nullable=False, unique=True)
+    customer_name = Column(String, nullable=False)
+    customer_phone = Column(BIGINT, nullable=False)
     text = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now())
 

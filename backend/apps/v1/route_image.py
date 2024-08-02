@@ -12,6 +12,7 @@ import os
 router = APIRouter()
 templates = Jinja2Templates(directory="template")
 
+
 IMAGEDIR = "template/gallery"
 
 
