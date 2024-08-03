@@ -106,3 +106,7 @@ def get_all_images(db: Session) -> List[dict]:
         }
         for image in db_images
     ]
+
+
+def is_admin(user_id: int) -> bool:
+    return user_id == 1
