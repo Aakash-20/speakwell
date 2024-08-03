@@ -68,9 +68,7 @@
                           <div class="cell cell-10 text-center">{{ image.created_at.strftime('%d/%m/%Y') }}</div>
                           <div class="cell cell-100 text-center">
                               <div class="edit-remove">
-                                <form action="/admin_image/delete/{{ image.id }}" method="POST" onsubmit="return confirm('Do you really want to remove it?')">
-                                  <button type="submit" class="btnRemove fa fa-remove bg-1 text-fff"></button>
-                                </form>
+                                <a href="/admin_image/delete/{{image.id}}" class="btnRemove fa fa-remove bg-1 text-fff" onclick="return confirm('Do you really want to remove it ?')"></a>
                               </div>
                           </div>
                       </li>

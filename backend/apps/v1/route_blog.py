@@ -81,8 +81,7 @@ async def create_blog_post(
         if not is_admin(current_user.id):
             return RedirectResponse(
                 url="/admin?message=You do not have permission to create blog posts",
-                status_code=status.HTTP_303_SEE_OTHER
-            )
+                status_code=status.HTTP_303_SEE_OTHER)
 
         image_url = None
         if file:
@@ -116,12 +115,10 @@ def delete_a_blog(request: Request, id: int, db: Session = Depends(get_db)):
         msg = delete_blog_by_id(id=id, author_id=author.id, db=db)
         alert = msg.get("error") or msg.get("msg")
         return RedirectResponse(
-            f"/?alert={alert}", status_code=status.HTTP_302_FOUND
-        )
+            f"/admin?alert={alert}", status_code=status.HTTP_302_FOUND)
     except Exception as e:
         print(f"Exception raised while deleting {e}")
         blog = retrieve_blog(id=id, db=db)
         return templates.TemplateResponse(
             "error.html",
-            {"request": request, "alert": "Please Login Again", "blog": blog},
-        )
+            {"request": request, "alert": "Please Login Again", "blog": blog})
