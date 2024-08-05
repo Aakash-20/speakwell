@@ -31,7 +31,7 @@ def admin_home(request: Request, message: Optional[str] = None, db: Session = De
 @router.get("/admin/enquiry", response_class=HTMLResponse)
 async def list_enquiry(request: Request, db: Session = Depends(get_db)):
     enquiry = list_all_enquiry(db)
-    return templates.TemplateResponse("admin_enquiry.html", {"request": request, "enquiry": enquiry, "message": "success"})
+    return templates.TemplateResponse("admin_enquiry.html", {"request": request, "enquiry": enquiry})
 
 
 @router.get("/admin/contact", response_class=HTMLResponse)

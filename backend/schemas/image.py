@@ -12,5 +12,8 @@ class ImageResponse(BaseModel):
     url: str
     created_at: datetime
 
-class ImageListResponse(BaseModel):
-    images: List[ImageResponse]
+class ImageListResponse(ImageResponse):
+    pass
+        
+    class Config:
+        from_attributes = True

@@ -5,6 +5,7 @@ from db.models.image import Image
 from sqlalchemy import desc
 from schemas.image import ImageResponse, ImageListResponse
 from typing import List
+from fastapi import Request
 
 
 IMAGEDIR = "template/gallery"
@@ -74,13 +75,13 @@ async def get_image_info_logic(filename: str, request, db: Session):
     )
 
 
-async def get_all_images_logic(request,  db: Session) -> List[ImageListResponse]:
+async def get_all_images_logic(request: Request, db: Session) -> List[ImageListResponse]:
     db_images = db.query(Image).all()
     
     if not db_images:
         return [] 
 
-    base_url = get_base_url(request)
+    base_url = str(request.base_url)
     
     image_list = []
     for db_image in db_images:

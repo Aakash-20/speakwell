@@ -69,3 +69,5 @@ def delete_image(request: Request, image_id: int, db: Session = Depends(get_db))
             "error.html",
             {"request": request, "alert": "An error occurred", "image_id": image_id}
         )
+    
+
