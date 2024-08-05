@@ -1,55 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8">
     <title>Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="/static/admin.css">
+
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/static/gallery.css" />
-</head>
-<body>
-    <div id="Header"></div>
+    <link rel="stylesheet" href="/static/Gallery.css" />
+
+    <link rel="stylesheet" href="/static/Header.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/Footer.css" />
+  </head>
+  <body>
+    <div class="body-root">
+    <div class="body-section">
+
+      <header class="header">
+        <nav class="navbar">
+          <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
+          <ul class="links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/keyfactor">Key Factors</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog2">Blogs</a></li>
+            <li><a href="/contactUs">Contact Us</a></li>
+            <div class="buttons">
+              <a href="/login" class="signin">Sign In</a>
+            </div>
+          </ul>
+        </nav>
+      </header>
 
     <section class="intro-section">
         <h1>[ Gallery ]</h1>
     </section>
 
     <div class="gallery">
-        <img src="/images/1.jpeg">
-        <img src="/images/2.jpeg">
-        <img src="/images/3.jpeg">
-        <img src="/images/4.jpeg">
-        <img src="/images/5.jpeg">
-        <img src="/images/6.jpeg">
-        <img src="/images/7.jpeg">
-        <img src="/images/8.jpeg">
-        <img src="/images/9.jpeg">
-        <img src="/images/10.JPG">
-        <img src="/images/11.JPG">
-        
+      {% for image in images %}
+            <img src="{{ image.url }}" alt="{{ image.filename }}">
+        {% endfor %}
+    </div>
+
     <div id="Whatsapp"></div>
 
-    <div id="Footer"></div>
+    <section id="footer">
+      <div class="container">
+          <div class="row text-center text-xs-center text-sm-left text-md-left">
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                  <h5>Quick links</h5>
+                  <ul class="list-unstyled quick-links">
+                    <li><a href="/"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                    <li><a href="/keyfactor"><i class="fa fa-angle-double-right"></i>Key Factor</a></li>
+                    <li><a href="/gallery"><i class="fa fa-angle-double-right"></i>Gallery</a></li>
+                    <li><a href="/blog2"><i class="fa fa-angle-double-right"></i>Blog's</a></li>
+                    <li><a href="/contactUs"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                  <ul class="list-unstyled list-inline social text-center">
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                      <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+              </div>
+              </hr>
+          </div>	
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                  <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+              </div>
+              </hr>
+          </div>	
+      </div>
+  </section>
+    </div>
+    </div>
 
     <script>
-        fetch('/header')
-          .then(response => response.text())
-          .then(data => {
-        document.getElementById('Header').innerHTML = data;
-          });
-
           fetch('/whatsapp')
         .then(response => response.text())
         .then(data => {
         document.getElementById('Whatsapp').innerHTML = data;
         });
-
-        fetch('/footer')
-          .then(response => response.text())
-          .then(data => {
-              document.getElementById('Footer').innerHTML = data;
-          });
     </script>
-</body>
+  </body>
 </html>

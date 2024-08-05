@@ -1,779 +1,737 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>Home</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700,900" rel="stylesheet">
-        <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/f2-common.css'>
-        <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.min.css'>
-        <link rel="stylesheet" href="/static/style.css"/>
-        <link rel="stylesheet" href="/static/img.css"/>
-        <link rel="stylesheet" href="/static/form.css"/>
-        <link rel="stylesheet" href="/static/blog.css">
-        <style>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="/static/admin.css">
 
-        .statistics {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            padding-bottom: 4%;
-            background-size: cover;
-        }
+    <link rel="stylesheet" href="/static/Header.css" >
 
-        .stat-item {
-            text-align: center;
-            width: 170px;
-        }
+    <link rel="stylesheet" href="/static/WhyUs.css">
 
-        .stat-bg {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            background-size: cover;
-            margin: 0 auto;
-        }
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/Footer.css" />
 
-        .enrolled-bg { background-image: url('background/13440249.png'); }
-        .visit-bg { background-image: url('background/13985236.png'); }
-        .completed-bg { background-image: url('background/13440369.png'); }
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700,900" rel="stylesheet">
+    <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/f2-common.css'>
+    <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.min.css'>
+    <link rel="stylesheet" href="/static/Key.css"/>
+    <link rel="stylesheet" href="/static/Form.css"/>
 
-        .stat-content {
-            margin-top: 15px;
-            color: #000000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    <link rel="stylesheet" href="/static/About.css" />
 
-        .stat-content h2 {
-            margin: 0;
-            font-size: 27px;
-            font-weight: bold;
-        }
+    <link rel="stylesheet" href="/static/Img.css"/>
 
-        .stat-details {
-            display: flex;
-            gap: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            color: rgb(255, 102, 0);
-            padding-top: 7%;
-        }
-    
-        </style>
-    </head>
-    <body>
+    <link rel="stylesheet" href="/static/Blog1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 
-        <div id="Header"></div>
-
-        <div class="backimg">
-            <div class="backimage" style="background-image: url(background/sw.jpg);">
-                <section class="hero-section">
-                    <div class="hero">
-                        <img src="background/swl3.png" alt="Hero Image">
-                    </div>
-                </section>
-            </div>
-        </div>   
+  </head>
+  <body>
+    <div class="body-root">
+      <div class="body-section">
         
+        <header class="header">
+          <nav class="navbar">
+            <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
+            <ul class="links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/keyfactor">Key Factors</a></li>
+              <li><a href="/gallery">Gallery</a></li>
+              <li><a href="/blog2">Blogs</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+              <div class="buttons">
+                <a href="/login" class="signin">Sign In</a>
+              </div>
+            </ul>
+          </nav>
+        </header>
 
-        <!-- key -->
+        <img src="background/sw.jpg" alt="Description of Image" class="header-image">
+    
+
         <div class="main-wrapper">
-        <div class="sl-main-container">
-            <div class="sl-header-wrapper">
-            <h3>Our Key Factors</h3>
-            <p>Far from being damsels in distress, these warrior women are often the ones doing the rescuing, and kicking butt in the process.</p>
-            <!-- navigation buttons -->
-            <div class="sl-nav">
-                <div class="swiper-button-next">
-                <svg id="nextBtn" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65">
-                        <style>
-                        #nextBtn {
-                            fill: #04b7ac;
-                        }
-                        </style>
-                        <path d="M32.5 0A32.5 32.5 0 1 0 65 32.5 32.5 32.5 0 0 0 32.5 0zm0 62A29.5 29.5 0 1 1 62 32.5 29.53 29.53 0 0 1 32.5 62zm-5.22-40.28L38.06 32.5 27.28 43.28l2.12 2.12 12.9-12.9-12.9-12.9z"/>
-                    </svg>
-                </div>
-                <div class="swiper-button-prev">
-                <svg xmlns="http://www.w3.org/2000/svg" id="prevBtn" data-name="Layer 1" viewBox="0 0 65 65">
-                        <style>
-                        #prevBtn {
-                            fill: #04b7ac;
-                        }
-                        </style>
-                        <path d="M0 32.5A32.5 32.5 0 1 0 32.5 0 32.5 32.5 0 0 0 0 32.5zm3 0A29.5 29.5 0 1 1 32.5 62 29.53 29.53 0 0 1 3 32.5zm32.6-12.9L22.7 32.5l12.9 12.9 2.12-2.12L26.94 32.5l10.78-10.78z"/>
-                    </svg>
-                </div>
-            </div>
-            </div>
+          <div class="sl-main-container">
+              <div class="sl-header-wrapper">
+              <h3>Our Key Factors</h3>
+              <p>Far from being damsels in distress, these warrior women are often the ones doing the rescuing, and kicking butt in the process.</p>
+              <!-- navigation buttons -->
+              <div class="sl-nav">
+                  <div class="swiper-button-next">
+                  </div>
+                  <div class="swiper-button-prev">
+                  </div>
+              </div>
+              </div>
+  
+              <div class="sl-wrapper">
+              <!-- Slider main container -->
+              <div class="swiper-container">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                  <!-- Slides -->
+  
+                  <div class="swiper-slide sl--slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-1 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Institutes For Interview Skill</h2>
+                          <p class="sl--card-content">Our institute is the best for these training, with the best and trained of professionals in this field.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-2 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Group Discussion Class</h2>
+                          <p class="sl--card-content">A group discussion is a group of individuals, in the form of a circle with similar interests.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-3 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Training Group Discussion</h2>
+                          <p class="sl--card-content">We are renowned for providing you the best range of training group discussion.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-4 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Tutorials For Group Discussion</h2>
+                          <p class="sl--card-content">We provide Efficient and excellent staff and professionals who take Tutorials for group discussion.</p>    
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-5 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Soft Skill Training Center</h2>
+                          <p class="sl--card-content">We offer the best soft skill training center which bring learning up the workforce timely and effectively.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-6 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Classes For English Grammer</h2>
+                          <p class="sl--card-content">We provide language training for English Grammer & make sure the students learn the language efficiently.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-7 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Tutorials For English Grammer</h2>
+                          <p class="sl--card-content">We offer tutors for English Grammer students, professional faculty and best attention given to students.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-8 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Tutorials For Interview</h2>
+                          <p class="sl--card-content">We have the most efficient team that provides best tutorials for all kinds of interviews.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-9 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Classes For Corporate English</h2>
+                          <p class="sl--card-content">We are one of the recognized & most popular language classes for corporate English with best tutors.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-10 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Spoken English Workshops</h2>
+                          <p class="sl--card-content">Our team of experienced tutors excels in organizing English speaking workshops for our clients.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-11 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Classes For English Conversation</h2>
+                          <p class="sl--card-content">We are one of the recognized & most popular language classes for English conversation with best tutors</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-12 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Institutes For Personality Development</h2>
+                          <p class="sl--card-content">We introduce ourselves as one of the best institute by offering quality courses for personality development.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-13 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Institutes For Communicaton Skill</h2>
+                          <p class="sl--card-content">Study integrated cources for Communicaton Skill and pass out with flying colours!<br> Contact us to know more!</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-14 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Class English Spoken Certificate Course</h2>
+                          <p class="sl--card-content">Counted among the illustrious firms, we are engrossed in providing english spoken certificate courses.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-15 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Personal Grooming Classes</h2>
+                          <p class="sl--card-content">Want an appealing image and a confident personality? <br>Contact us and we would groom you completely. </p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-16 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Institutes For Interview Skill</h2>
+                          <p class="sl--card-content">Our institute is the best for these training, with the best and trained of professionals in this field.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+                  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-17 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Interview Technique Training</h2>
+                          <p class="sl--card-content">Our experties lies in rendering expert advice and techniques to be used for taking up an interview round.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-18 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Personality Development</h2>
+                          <p class="sl--card-content">We own personality development classes for individuals of all age groups for them to polish their personality.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-19 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Communication Training Centres</h2>
+                          <p class="sl--card-content">We are recognised as one of the best and most renowned communication training centres in the city.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-20 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Public Speaking Institutes</h2>
+                          <p class="sl--card-content">In our public speaking institute, we will help you boost confidence and improve your english speaking skills.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-21 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Classes</h2>
+                          <p class="sl--card-content">Love learning different language? We offer best language classes for easy and fast learning!</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-22 sl-bkg-img"></div>
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Institutes For Personality Development</h2>
+                          <p class="sl--card-content">We introduce ourselves as one of the best institute by offering quality courses for personality development.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+                      </div>
+                      </div>
+                  </div>
+  
+                  <div class="swiper-slide">
+                      <div class="slide-cover"></div>
+                      <div class="sl-card-wrapper">
+                      <div class="sl-gradient"></div>
+                      <div class="sl-img-23 sl-bkg-img"></div>
+  
+                      <div class="sl--content-wrapper sl--content-wrapper-inactive">
+                          <div class="sl--content-container sl--card-hide">
+                          <h2>Language Classes For English</h2>
+                          <p class="sl--card-content">Do people make fun of your English? Don't worry, we are here with English language class. Learn from experts.</p>
+                          <div class="sl--link">ENQUIRY</div>
+                          </div>
+  
+                          <!-- Card Nav GRP -->
+                          <div class="sl--card-nav-container">
+                          <!-- Reveal info btn -->
+                          <div class="sl--content-btn content-reveal-btn">
+                              <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
+                                  <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
+                                  </svg>
+                          </div>
+                          </div>
+                          <!-- END: Card Nav GRP -->
+  
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                  <!-- If we need pagination -->
+                  <!--<div class="swiper-pagination"></div>-->
+  
+              </div>
+              </div>
+              <!-- END: .sl-wrapper -->
+  
+          <!-- Enquiry Form -->
+      <div class="overlay" id="overlay" onclick="hideEnquiryForm()"></div>
+      <div class="enquiry-form" id="enquiry-form">
+          <div class="enquiry-header">
+              <h2>Enquiry</h2>
+              <button class="exitEnquiryForm" id="exit-enquiry-form" onclick="hideEnquiryForm()">✖</button>
+          </div>
+          <form id="enquiry-form-content" action="/enquiry" method="POST">
+              <label for="course">Course:</label>
+              <select id="course" name="course" required>
+                  <option value="" disabled selected>Select a course</option>
+                  <option value="course1">Institutes For Interview Skill</option>
+                  <option value="course2">Group Discussion Class</option>
+                  <option value="course3">Training Group Discussion</option>
+                  <option value="course4">Tutorials For Group Discussion</option>
+                  <option value="course5">Soft Skill Training Center</option>
+                  <option value="course6">Language Classes For English Grammer</option>
+                  <option value="course7">Tutorials For English Grammer</option>
+                  <option value="course8">Tutorials For Interview</option>
+                  <option value="course9">Language Classes For Corporate English</option>
+                  <option value="course10">Spoken English Workshops</option>
+                  <option value="course11">Language Classes For English Conversation</option>
+                  <option value="course12">Institutes For Personality Development</option>
+                  <option value="course13">Institutes For Communicaton Skill</option>
+                  <option value="course14">Language Class English Spoken Certificate Course</option>
+                  <option value="course15">Personal Grooming Classes</option>
+                  <option value="course16">Institutes For Interview Skill</option>
+                  <option value="course17">Interview Technique Training</option>
+                  <option value="course18">Personality Development</option>
+                  <option value="course19">Communication Training Centres</option>
+                  <option value="course20">Public Speaking Institutes</option>
+                  <option value="course21">Language Classes</option>
+                  <option value="course22">Institutes For Personality Development</option>
+                  <option value="course23">Language Classes For English</option>
+              </select>
+  
+              <label for="customer_name">Name:</label>
+              <input type="text" id="customer_name" name="customer_name" required>
+              
+              <label for="customer_phone">Phone Number:</label>
+              <input type="tel" id="customer_phone" name="customer_phone" required>
+              
+              <label for="text">Enquiry:</label>
+              <textarea id="text" name="text" rows="4" ></textarea>
+              
+              <button type="submit">Submit</button>
+          </form>
+      </div>
+          </div>
+          </div>
 
-            <div class="sl-wrapper">
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                <!-- Slides -->
-
-                <div class="swiper-slide sl--slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-1 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Institutes For Interview Skill</h2>
-                        <p class="sl--card-content">Our institute is the best for these training, with the best and trained of professionals in this field.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-2 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Group Discussion Class</h2>
-                        <p class="sl--card-content">A group discussion is a group of individuals, in the form of a circle with similar interests.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-3 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Training Group Discussion</h2>
-                        <p class="sl--card-content">We are renowned for providing you the best range of training group discussion.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-4 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Tutorials For Group Discussion</h2>
-                        <p class="sl--card-content">We provide Efficient and excellent staff and professionals who take Tutorials for group discussion.</p>    
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-5 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Soft Skill Training Center</h2>
-                        <p class="sl--card-content">We offer the best soft skill training center which bring learning up the workforce timely and effectively.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-6 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Classes For English Grammer</h2>
-                        <p class="sl--card-content">We provide language training for English Grammer & make sure the students learn the language efficiently.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-7 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Tutorials For English Grammer</h2>
-                        <p class="sl--card-content">We offer tutors for English Grammer students, professional faculty and best attention given to students.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-8 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Tutorials For Interview</h2>
-                        <p class="sl--card-content">We have the most efficient team that provides best tutorials for all kinds of interviews.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-9 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Classes For Corporate English</h2>
-                        <p class="sl--card-content">We are one of the recognized & most popular language classes for corporate English with best tutors.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-10 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Spoken English Workshops</h2>
-                        <p class="sl--card-content">Our team of experienced tutors excels in organizing English speaking workshops for our clients.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-11 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Classes For English Conversation</h2>
-                        <p class="sl--card-content">We are one of the recognized & most popular language classes for English conversation with best tutors</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-12 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Institutes For Personality Development</h2>
-                        <p class="sl--card-content">We introduce ourselves as one of the best institute by offering quality courses for personality development.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-13 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Institutes For Communicaton Skill</h2>
-                        <p class="sl--card-content">Study integrated cources for Communicaton Skill and pass out with flying colours!<br> Contact us to know more!</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-14 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Class English Spoken Certificate Course</h2>
-                        <p class="sl--card-content">Counted among the illustrious firms, we are engrossed in providing english spoken certificate courses.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-15 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Personal Grooming Classes</h2>
-                        <p class="sl--card-content">Want an appealing image and a confident personality? <br>Contact us and we would groom you completely. </p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-16 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Institutes For Interview Skill</h2>
-                        <p class="sl--card-content">Our institute is the best for these training, with the best and trained of professionals in this field.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-                
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-17 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Interview Technique Training</h2>
-                        <p class="sl--card-content">Our experties lies in rendering expert advice and techniques to be used for taking up an interview round.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-18 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Personality Development</h2>
-                        <p class="sl--card-content">We own personality development classes for individuals of all age groups for them to polish their personality.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-19 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Communication Training Centres</h2>
-                        <p class="sl--card-content">We are recognised as one of the best and most renowned communication training centres in the city.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-20 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Public Speaking Institutes</h2>
-                        <p class="sl--card-content">In our public speaking institute, we will help you boost confidence and improve your english speaking skills.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-21 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Classes</h2>
-                        <p class="sl--card-content">Love learning different language? We offer best language classes for easy and fast learning!</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-22 sl-bkg-img"></div>
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Institutes For Personality Development</h2>
-                        <p class="sl--card-content">We introduce ourselves as one of the best institute by offering quality courses for personality development.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="slide-cover"></div>
-                    <div class="sl-card-wrapper">
-                    <div class="sl-gradient"></div>
-                    <div class="sl-img-23 sl-bkg-img"></div>
-
-                    <div class="sl--content-wrapper sl--content-wrapper-inactive">
-                        <div class="sl--content-container sl--card-hide">
-                        <h2>Language Classes For English</h2>
-                        <p class="sl--card-content">Do people make fun of your English? Don't worry, we are here with English language class. Learn from experts.</p>
-                        <div class="sl--link">ENQUIRY</div>
-                        </div>
-
-                        <!-- Card Nav GRP -->
-                        <div class="sl--card-nav-container">
-                        <!-- Reveal info btn -->
-                        <div class="sl--content-btn content-reveal-btn">
-                            <svg class="card-nav-gfx sl--show-card-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.63 113.63">
-                                <path d="M105.56 48.75H64.88V8.06a8.06 8.06 0 0 0-16.12 0v40.69H8.06a8.06 8.06 0 0 0 0 16.13h40.69v40.69a8.06 8.06 0 0 0 16.13 0V64.88h40.69a8.06 8.06 0 0 0 0-16.12z"/>
-                                </svg>
-                        </div>
-                        </div>
-                        <!-- END: Card Nav GRP -->
-
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <!-- If we need pagination -->
-                <!--<div class="swiper-pagination"></div>-->
-
-            </div>
-            </div>
-            <!-- END: .sl-wrapper -->
-
-        <!-- Enquiry Form -->
-    <div class="overlay" id="overlay" onclick="hideEnquiryForm()"></div>
-    <div class="enquiry-form" id="enquiry-form">
-        <div class="enquiry-header">
-            <h2>Enquiry</h2>
-            <button class="exitEnquiryForm" id="exit-enquiry-form" onclick="hideEnquiryForm()">✖</button>
-        </div>
-        <form id="enquiry-form-content" action="/enquiry" method="POST">
-            <label for="course">Course:</label>
-            <select id="course" name="course" required>
-                <option value="" disabled selected>Select a course</option>
-                <option value="course1">Institutes For Interview Skill</option>
-                <option value="course2">Group Discussion Class</option>
-                <option value="course3">Training Group Discussion</option>
-                <option value="course4">Tutorials For Group Discussion</option>
-                <option value="course5">Soft Skill Training Center</option>
-                <option value="course6">Language Classes For English Grammer</option>
-                <option value="course7">Tutorials For English Grammer</option>
-                <option value="course8">Tutorials For Interview</option>
-                <option value="course9">Language Classes For Corporate English</option>
-                <option value="course10">Spoken English Workshops</option>
-                <option value="course11">Language Classes For English Conversation</option>
-                <option value="course12">Institutes For Personality Development</option>
-                <option value="course13">Institutes For Communicaton Skill</option>
-                <option value="course14">Language Class English Spoken Certificate Course</option>
-                <option value="course15">Personal Grooming Classes</option>
-                <option value="course16">Institutes For Interview Skill</option>
-                <option value="course17">Interview Technique Training</option>
-                <option value="course18">Personality Development</option>
-                <option value="course19">Communication Training Centres</option>
-                <option value="course20">Public Speaking Institutes</option>
-                <option value="course21">Language Classes</option>
-                <option value="course22">Institutes For Personality Development</option>
-                <option value="course23">Language Classes For English</option>
-            </select>
-
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-            
-            <label for="enquiry">Enquiry:</label>
-            <textarea id="enquiry" name="enquiry" rows="4" required></textarea>
-            
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-        </div>
-        </div>
-
-        <!-- images -->
-        <section class="intro">
+          <section class="intro">
             <h1>Images</h1>
         </section>
         <div class="slider-container">
@@ -796,352 +754,268 @@
         </div>
         </div>
 
-        <div id="WhyUs"></div>
-
-        
-
-        <div id="AboutUs"></div>
-
-        <!-- count enroll visit.. -->
-        <section class="statistics">
-            <div class="stat-item">
-                <div class="stat-bg enrolled-bg"></div>
-                <div class="stat-content">
-                    <h2>1000+</h2>
-                    <div class="stat-details">
-                        <p>Students</p>
-                        <p>Enrolled</p>
+        <section class="why_us" id="why">
+            <div class="section_container">
+                <h2 class="section_title">Why Us?</h2>
+                <p> Looking to enhance your English communication skills in Nagpur? Our courses are tailored to improve fluency, pronunciation, and overall confidence in speaking English. Whether you're a student, professional, or someone looking to broaden language abilities, enrolling in English Speaking Classes in Nagpur can be a transformative step towards effective communication on the global stage.
+                    <br><br>
+                    Speakwell Spoken English Classes in Nagpur offers a comprehensive English communication skills program designed to empower students and professionals towards future achievements. Recognized as one of the leading Spoken English Language Institutes, Speakwell Nagpur has been delivering top-notch English communication classes for over five years. We were honoured as one of the "10 Most Promising Personality Development Companies in 2022" by Siliconindia magazine.
+                    <br><br>
+                    Our Basic level Spoken English Course covers Grammar, Vocabulary, Group Discussion, Public Speaking, Interview Techniques, Voice and Accent, Extempore, Telephone Etiquette, Customer Service, and Soft Skills. The Advanced level course includes Enhancing Interview Skills, Presentation Skills, and Personality Development Aspects, paving the way for career development and better job opportunities.
+                    <br><br>
+                    With limited students per batch, we provide individual attention and hands-on training by experienced trainers to ensure recommended outcomes. Our fees are affordable, and the duration of beginner and advanced level programs is 2-3 months, culminating in certification.
+                    <br><br>
+                    Join Speakwell Spoken English Classes in Nagpur and unlock your potential to communicate with confidence in the corporate world and beyond. Let us help you speak English fluently and effectively, opening doors to new opportunities and success in your personal and professional endeavours.</p>
+                <br><br>
+                    <div class="why_container">
+                  <div class="why_items">
+                    <img src="https://cdn3.iconfinder.com/data/icons/education/512/students-512.png" alt="Student" />
+                    <div class="why_us_text">
+                      <h3>STUDENTS</h3>
+                      <p>
+                          "Discover essential skills to secure placements both on-campus and off-campus, ensuring readiness for hirings. Enroll now to boost your employability and embark on a successful career journey!"
+                      </p>
                     </div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-bg visit-bg"></div>
-                <div class="stat-content">
-                    <h2>90%</h2>
-                    <div class="stat-details">
-                        <p>Daily</p>
-                        <p>Visit</p>
+                  </div>
+                  <div class="why_items">
+                    <img src="https://cdn3.iconfinder.com/data/icons/job-seeker-illustrations/3000/JobSeeker015-512.png" alt="Job Seeker" />
+                    <div class="why_us_text">
+                      <h3>JOB SEEKERS</h3>
+                      <p>
+                          "Turn your dreams into reality and achieve financial growth with SpeakWell. Unlock your potential and pave the way for career & success with our expert Counsellor guidance."
+                          With SpeakWell Spoken English Classes, Nagpur
+                      </p>
                     </div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-bg completed-bg"></div>
-                <div class="stat-content">
-                    <h2>90%</h2>
-                    <div class="stat-details">
-                        <p>Successfully</p>
-                        <p>Completed</p>
+                  </div>
+                  <div class="why_items">
+                    <img src="https://cdn2.iconfinder.com/data/icons/it-network-engineer/324/server-engineer-005-512.png" alt="Working Professional" />
+                    <div class="why_us_text">
+                      <h3>WORKING PROFESSIONAL</h3>
+                      <p>
+                          "Position yourself as a sought-after expert in your field, ensuring a steady stream of opportunities. Become a job chooser with our comprehensive training and expertise."
+                          With SpeakWell Spoken English Classes, Nagpur
+                      </p>
                     </div>
+                  </div>
                 </div>
             </div>
         </section>
 
-        <!-- blog. -->
-        <div class="bblog">
-            <h1>Blog</h1>
+        <section class="about-us">
+          <div class="about">
+            <img src="/background/myanjay.jpeg" class="pic" />
+            <div class="text">
+              <h2>About Us</h2>
+              <p>"Speakwell" Spoken English Classes is a leading and renowned institute in Nagpur, dedicated to enhancing spoken English and written communication skills. Our programs cover a wide range of topics, including Grammar, Vocabulary, Group Discussion, Public Speaking, Interview Techniques, Voice and Accent in Advanced courses, Extempore, Telephone Etiquette, Customer Service, and Soft Skills.<br>
+                  We focus on grooming candidates to effectively communicate with confidence in corporate settings, helping them improve their personalities. With limited students per batch, we ensure individual attention, guided by Business English Certified Trainers. Our courses are affordable, with the beginner program lasting 2 months and culminating in certification. Join us to excel in communication!
+              </p>
             </div>
-        <div class="contain">
-            <div class="wrap">
+          </div>
+        </section>
 
-                <div class="slide">
-                    <div class="slide-img">
-                        <img src="https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/letter-a.jpg" alt="">
+        <div class="blog-text">
+            <h1>Blogs</h1>
+          </div>
+        <div class="blog-slider">
+            <div class="blog-slider__wrp swiper-wrapper">
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759872/kuldar-kalvik-799168-unsplash.jpg" alt="">
                     </div>
-
-                    <div class="slide-content">
-                        <h2>Daily Design Inspiration</h2>
-                        <p>Part of the Daily Design Inspiration series that started it all on Abduzeedo. This is where you'll find the most interesting things/finds/work curated by one of us to simply inspire your day.</p>
-                        <a href="/blog2">View More</a>
-                        <div class="button">
-                            <div class="btn button-left">
-                                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                            </div>
-                            <div class="btn button-right">
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </div>                            
-                        </div>
-                    </div>   
-                </div>
-
-
-                <div class="slide">
-                    <div class="slide-img">
-                        <img src="https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/action.jpg" alt="">
+                    <div class="blog-slider__content">
+                        <span class="blog-slider__code">26 December 2019</span>
+                        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+                        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+                        <a href="/blog2" class="blog-slider__button">READ MORE</a>
                     </div>
-
-                    <div class="slide-content">
-                        <h2>Wallpaper of the week</h2>
-                        <p>It's been a little while since our last WPW; following up our comeback with the Wallpaper of the Week series, it's crazy to imagine there's more than 350+ wallpapers available to download for your different...</p>
-                        <a href="/blog2">View More</a>
-                        <div class="button">
-                            <div class="btn button-left">
-                                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                            </div>
-                            <div class="btn button-right 2">
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            </div>                            
-                        </div>
-                    </div>  
                 </div>
-
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/jason-leung-798979-unsplash.jpg" alt="">
+                    </div>
+                    <div class="blog-slider__content">
+                        <span class="blog-slider__code">26 December 2019</span>
+                        <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+                        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+                        <a href="/blog2" class="blog-slider__button">READ MORE</a>
+                    </div>
+                </div>
+                <div class="blog-slider__item swiper-slide">
+                    <div class="blog-slider__img">
+                        <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/alessandro-capuzzi-799180-unsplash.jpg" alt="">
+                    </div>
+                    <div class="blog-slider__content">
+                        <span class="blog-slider__code">26 December 2019</span>
+                        <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+                        <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+                        <a href="/blog2" class="blog-slider__button">READ MORE</a>
+                    </div>
+                </div>
             </div>
+            <div class="blog-slider__pagination"></div>
         </div>
-
+        <br><br>
         <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
         <div class="elfsight-app-03cf5116-ea4e-451f-a995-c85a81bcdab7" data-elfsight-app-lazy></div>
 
-        
-
-        <div id="ContactUs"></div>
-
         <div id="Whatsapp"></div>
 
-        <div id="Footer"></div>
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="index.html"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                            <li><a href="keyfactor.html"><i class="fa fa-angle-double-right"></i>Key Factor</a></li>
+                            <li><a href="gallery.html"><i class="fa fa-angle-double-right"></i>Gallery</a></li>
+                            <li><a href="blog2.html"><i class="fa fa-angle-double-right"></i>Blog's</a></li>
+                            <li><a href="contactUs.html"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    </hr>
+                </div>	
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                    </div>
+                    </hr>
+                </div>	
+            </div>
+        </section>
 
-        <!-- script -->
-        
-        <!-- keyfactor scripts -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js'></script>
-        <script >
-            $(document).ready(function() {
-        "use strict";
+      </div>
+    </div>
 
-        var mySwiper = new Swiper(".swiper-container", {
-            // Navigation arrows
-            nextButton: ".swiper-button-next",
-            prevButton: ".swiper-button-prev",
-            slidesPerView: 2.7,
-            centeredSlides: true,
-            breakpoints: {
-            1440: {
-                slidesPerView: 2.6
-            },
-            1439: {
-                slidesPerView: 1.45
-            },
-            1024: {
-                slidesPerView: 1.45
-            },
-            1023: {
-                slidesPerView: 2
-            },
-            768: {
-                slidesPerView: 2
-            },
-            568: {
-                slidesPerView: 1.5,
-                spaceBetween: 10
-            },
-            414: {
-                slidesPerView: 1.09,
-                spaceBetween: 3
-            },
-            320: {
-                slidesPerView: 1.09,
-                spaceBetween: 3
-            }
-            }
-        });
+    <!-- Key script for Swiper  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/swiper.jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script>
+$(document).ready(function() {
+    "use strict";
 
-        /* Info Card */
-        var $revealCardContentBtn = $(".sl--card-nav-container"),
-            $contentContainer = $(
-            ".sl-card-wrapper .sl--content-wrapper .sl--content-container"
-            ),
-            $navGFX = $(
-            ".sl-card-wrapper .sl--content-wrapper .sl--card-nav-container .sl--content-btn .card-nav-gfx"
-            );
-
-        $revealCardContentBtn.on("click", function() {
-            var parent = $(this).closest(".swiper-slide");
-
-            // IC Container
-            parent
-            .siblings()
-            .find($contentContainer)
-            .removeClass("sl--card-reveal");
-            parent
-            .siblings()
-            .find($contentContainer)
-            .addClass("sl--card-hide");
-            parent.find($contentContainer).toggleClass("sl--card-hide sl--card-reveal");
-
-            // IC Nav wrapper
-            parent
-            .siblings()
-            .find(".sl--content-wrapper")
-            .removeClass("sl--content-wrapper-active");
-            parent
-            .siblings()
-            .find(".sl--content-wrapper")
-            .addClass("sl--content-wrapper-inactive");
-            parent
-            .find(".sl--content-wrapper")
-            .toggleClass("sl--content-wrapper-inactive sl--content-wrapper-active");
-
-            // IC Nav GFX
-            parent
-            .siblings()
-            .find($navGFX)
-            .removeClass("sl--close-card-info");
-            parent
-            .siblings()
-            .find($navGFX)
-            .addClass("sl--show-card-info");
-            parent.find($navGFX).toggleClass("sl--show-card-info sl--close-card-info");
-        });
-
-        /* Hide content on slide change */
-        mySwiper.on("onSlideChangeStart", function() {
-            if ($contentContainer.hasClass("sl--card-reveal")) {
-            var $CI_ContentWrapper = $(".sl--content-wrapper");
-
-            $contentContainer.removeClass("sl--card-reveal");
-            $contentContainer.addClass("sl--card-hide");
-            $navGFX.removeClass("sl--close-card-info");
-            $navGFX.addClass("sl--show-card-info");
-            $CI_ContentWrapper.removeClass("sl--content-wrapper-active");
-            $CI_ContentWrapper.addClass("sl--content-wrapper-inactive");
-            }
-        });
-        });
-
-            function showEnquiryForm() {
-        document.getElementById('overlay').style.display = 'block';
-        document.getElementById('enquiry-form').style.display = 'block';
+    // Initialize Swiper
+    var mySwiper = new Swiper(".swiper-container", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        slidesPerView: 2.7,
+        centeredSlides: true,
+        breakpoints: {
+            1440: { slidesPerView: 2.6 },
+            1439: { slidesPerView: 1.45 },
+            1024: { slidesPerView: 1.45 },
+            1023: { slidesPerView: 2 },
+            768: { slidesPerView: 2 },
+            568: { slidesPerView: 1.5, spaceBetween: 10 },
+            414: { slidesPerView: 1.09, spaceBetween: 3 },
+            320: { slidesPerView: 1.09, spaceBetween: 3 }
         }
+    });
 
-            function hideEnquiryForm() {
-        document.getElementById('overlay').style.display = 'none';
-        document.getElementById('enquiry-form').style.display = 'none';
+    /* Info Card */
+    var $revealCardContentBtn = $(".sl--card-nav-container"),
+        $contentContainer = $(".sl-card-wrapper .sl--content-wrapper .sl--content-container"),
+        $navGFX = $(".sl-card-wrapper .sl--content-wrapper .sl--card-nav-container .sl--content-btn .card-nav-gfx");
+
+    $revealCardContentBtn.on("click", function() {
+        var parent = $(this).closest(".swiper-slide");
+
+        // Hide other cards and show the clicked card's content
+        parent.siblings().find($contentContainer).removeClass("sl--card-reveal").addClass("sl--card-hide");
+        parent.find($contentContainer).toggleClass("sl--card-hide sl--card-reveal");
+
+        // Update Nav wrapper state
+        parent.siblings().find(".sl--content-wrapper").removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
+        parent.find(".sl--content-wrapper").toggleClass("sl--content-wrapper-inactive sl--content-wrapper-active");
+
+        // Update Nav GFX state
+        parent.siblings().find($navGFX).removeClass("sl--close-card-info").addClass("sl--show-card-info");
+        parent.find($navGFX).toggleClass("sl--show-card-info sl--close-card-info");
+    });
+
+    /* Hide content on slide change */
+    mySwiper.on("slideChangeTransitionStart", function() {
+        if ($contentContainer.hasClass("sl--card-reveal")) {
+            $contentContainer.removeClass("sl--card-reveal").addClass("sl--card-hide");
+            $navGFX.removeClass("sl--close-card-info").addClass("sl--show-card-info");
+            $(".sl--content-wrapper").removeClass("sl--content-wrapper-active").addClass("sl--content-wrapper-inactive");
         }
+    });
 
-        document.addEventListener('DOMContentLoaded', function() {
-        var links = document.querySelectorAll('.sl--link');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
-                showEnquiryForm();
-                });
-            });
-        });
-        </script>
+    // Enquiry form handling
+    var links = document.querySelectorAll('.sl--link');
+    links.forEach(function(link) {
+        link.addEventListener('click', showEnquiryForm);
+    });
+});
 
-        <!-- image scripts -->
-        <script>
-            const initSlider = () => {
-            const imageList = document.querySelector(".slider-wrapper .image-list");
-        
-            const prevButton = document.querySelector(".slider-button.pre");
-            const nextButton = document.querySelector(".slider-button.nex");
-        
-            prevButton.addEventListener("click", () => {
-                imageList.scrollBy({ left: -imageList.clientWidth, behavior: "smooth" });
-            });
-        
-            nextButton.addEventListener("click", () => {
-                imageList.scrollBy({ left: imageList.clientWidth, behavior: "smooth" });
-            });
-            };
-        
-            window.addEventListener("resize", initSlider);
-            window.addEventListener("load", initSlider);
-        </script>
+function showEnquiryForm() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('enquiry-form').style.display = 'block';
+}
 
-        <!-- blog scripts -->
-        <script>
-    var slide       = document.querySelectorAll('.slide'),
-        button      = document.querySelectorAll('.btn'),
-        current     = 0;
-    
-    slide[current].style.zIndex = 2;
-    button[0].classList.add('inactive');
-    button[button.length - 1].classList.add('inactive');
-    
-    button = document.querySelectorAll('.btn:not(.inactive');
-    
-    for (element = 0; element < button.length; element++) {
-        button[element].addEventListener('click', function() {
-    
-            for (i=0; i < slide.length; i++) {
-                document.querySelectorAll('.slide-img')[i].classList.add('active');
-                document.querySelectorAll('.button')[i].style.opacity = "0";
-                document.querySelectorAll('.slide-content h2')[i].classList.add("active");
-                document.querySelectorAll('.slide-content p')[i].classList.add("active");
-                document.querySelectorAll('.slide-content a')[i].classList.add("active");
-            }
-            
-            if (this.classList.contains('button-right')) {
-                current++;
-                if (current > slide.length - 1) {
-                    current = slide.length - 1
-                }
-            }
-            if (this.classList.contains('button-left')) {
-                current--;
-                if (current < 0) {
-                    current = 0
-                }
-            }
-    
-            setTimeout(function() {
-                for (e=0; e < slide.length; e++) {
-                    slide[e].style.zIndex = "0";
-                }
-                slide[current].style.zIndex = "2";
-    
-                for (i=0; i <slide.length; i++) {
-                    document.querySelectorAll('.slide-img')[i].classList.remove('active');
-                    document.querySelectorAll('.button')[i].style.opacity = "1";
-                    document.querySelectorAll('.slide-content h2')[i].classList.remove("active");
-                    document.querySelectorAll('.slide-content p')[i].classList.remove("active");
-                    document.querySelectorAll('.slide-content a')[i].classList.remove("active");
-                }
-            }, 1000);
-        });
+function hideEnquiryForm() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('enquiry-form').style.display = 'none';
+}
+</script>
+
+<!-- Blog script -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
+<script>
+var swiper = new Swiper('.blog-slider', {
+    spaceBetween: 30,
+    effect: 'fade',
+    loop: true,
+    mousewheel: {
+        invert: false,
+    },
+    pagination: {
+        el: '.blog-slider__pagination',
+        clickable: true,
     }
-        </script>
+});
+</script>
 
-        <script>
+<!-- img script -->
+<script>
+    const initSlider = () => {
+    const imageList = document.querySelector(".slider-wrapper .image-list");
 
-            fetch('/header')
-                .then(response => response.text())
-                .then(data => {
-                document.getElementById('Header').innerHTML = data;
-                });
+    const prevButton = document.querySelector(".slider-button.pre");
+    const nextButton = document.querySelector(".slider-button.nex");
 
-            fetch('/why_us')
-                .then(response => response.text())
-                .then(data => {
-                document.getElementById('WhyUs').innerHTML = data;
-                });
+    prevButton.addEventListener("click", () => {
+        imageList.scrollBy({ left: -imageList.clientWidth, behavior: "smooth" });
+    });
 
-            fetch('/aboutUs')
-                .then(response => response.text())
-                .then(data => {
-                document.getElementById('AboutUs').innerHTML = data;
-                });
+    nextButton.addEventListener("click", () => {
+        imageList.scrollBy({ left: imageList.clientWidth, behavior: "smooth" });
+    });
+    };
 
+    window.addEventListener("resize", initSlider);
+    window.addEventListener("load", initSlider);
+</script>
 
-            fetch('/contact')
-                .then(response => response.text())
-                .then(data => {
-                document.getElementById('ContactUs').innerHTML = data;
-                });
-
-            fetch('/whatsapp')
+    <script>
+        fetch('/whatsapp')
                 .then(response => response.text())
                 .then(data => {
                 document.getElementById('Whatsapp').innerHTML = data;
                 });
-
-            fetch('/footer')
-                .then(response => response.text())
-                .then(data => {
-                document.getElementById('Footer').innerHTML = data;
-                });
-        </script>
-
-    </body>
-    </html>
+    </script>
+  </body>
+</html>
