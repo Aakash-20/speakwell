@@ -26,7 +26,7 @@ async def create_upload_file(request: Request, file: UploadFile = File(...), db:
         current_user = get_current_user(token=token, db=db)
         if not is_admin(current_user.id):
             return RedirectResponse(
-                url="/admin?message=You do not have permission to delete image",
+                url="/admin_index?message=You do not have permission to delete image",
                 status_code=status.HTTP_303_SEE_OTHER)
         result = await create_upload_file_logic(request, file, db)
         return RedirectResponse(url="/admin_image?message=Image uploaded successfully", status_code=status.HTTP_303_SEE_OTHER)
@@ -46,7 +46,7 @@ def delete_image(request: Request, image_id: int, db: Session = Depends(get_db))
         current_user = get_current_user(token=token, db=db)
         if not is_admin(current_user.id):
             return RedirectResponse(
-                url="/admin?message=You do not have permission to delete image",
+                url="/admin_index?message=You do not have permission to delete image",
                 status_code=status.HTTP_303_SEE_OTHER)
         image = db.query(Image).filter(Image.id == image_id).first()
         if not image:

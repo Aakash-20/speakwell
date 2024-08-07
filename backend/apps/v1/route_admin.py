@@ -14,7 +14,7 @@ templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
 
-@router.get("/admin")
+@router.get("/admin_index")
 def admin_home(request: Request, message: Optional[str] = None, db: Session = Depends(get_db)):
     try:
         blogs = list_blogs(db=db)

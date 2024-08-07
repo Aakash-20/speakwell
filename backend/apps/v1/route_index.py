@@ -1,9 +1,10 @@
-from fastapi import Request, Form, Query, APIRouter, Depends
+from fastapi import Request, Form, Query, APIRouter, Depends, Response
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
 from db.repository.image import get_all_images_logic
+from db.repository.blog import list_blogs
 
 
 templates = Jinja2Templates(directory="template")
@@ -11,8 +12,24 @@ router = APIRouter()
 
 
 @router.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "message": "success"})
+async def read_blogs(request: Request, db: Session = Depends(get_db)):
+    try:
+        blogs = list_blogs(db=db)
+        blog_list = [
+            {
+                "id": blog.id,
+                "image": blog.image,
+                "title": blog.title,
+                "content": blog.content
+            }
+            for blog in blogs
+        ]
+        return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list})
+    except Exception as e:
+        return templates.TemplateResponse(
+            "error.html", 
+            {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
+        )
 
 
 @router.get("/aboutUs", response_class=HTMLResponse)
@@ -49,5 +66,7 @@ async def read_images(request: Request, db: Session = Depends(get_db)):
 @router.get("/why_us")
 async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
+
+
 
 
