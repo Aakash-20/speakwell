@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" href="/static/Admin.css">
 
-    <link rel="stylesheet" href="/static/Header.css" >
+    <link rel="stylesheet" href="/static/Header.css" />
 
     <link rel="stylesheet" href="/static/WhyUs.css">
 
@@ -687,7 +687,10 @@
               <h2>Enquiry</h2>
               <button class="exitEnquiryForm" id="exit-enquiry-form" onclick="hideEnquiryForm()">✖</button>
           </div>
-          <form id="enquiry-form-content" action="/enquiry" method="POST">
+            <form class="enquiryForm" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="8106ef89-99b4-458c-9f3f-ddefb3b77b8e">
+                <input type="hidden" id="course_name" name="course_name" value="">
+    
               <label for="course">Course:</label>
               <select id="course" name="course" required>
                   <option value="" disabled selected>Select a course</option>
@@ -718,13 +721,16 @@
   
               <label for="customer_name">Name:</label>
               <input type="text" id="customer_name" name="customer_name" required>
+
+              <label for="customer_email">Email :</label>
+              <input type="text" id="customer_email" name="customer_email" required>
               
               <label for="customer_phone">Phone Number:</label>
               <input type="tel" id="customer_phone" name="customer_phone" required>
               
               <label for="text">Enquiry:</label>
               <textarea id="text" name="text" rows="4" ></textarea>
-              
+              <br><br>
               <button type="submit">Submit</button>
           </form>
       </div>
@@ -827,12 +833,11 @@
                         <span class="blog-slider__code">{{ blog.date | default('Unknown Date') }}</span>
                         <div class="blog-slider__title">{{ blog.title }}</div>
                         <div class="blog-slider__text">{{ blog.content }}</div>
-                        <a href="/blog/{{ blog.id }}" class="blog-slider__button">READ MORE</a>
+                        <a href="/blog2" class="blog-slider__button">READ MORE</a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            
             <div class="blog-slider__pagination"></div>
         </div>
         <br><br>
@@ -951,6 +956,41 @@ function hideEnquiryForm() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('enquiry-form').style.display = 'none';
 }
+
+document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const form = event.target;
+        const selectedCourseElement = document.getElementById('course');
+        const selectedCourseName = selectedCourseElement.options[selectedCourseElement.selectedIndex].text;
+
+        document.getElementById('course_name').value = selectedCourseName;
+
+        console.log('Selected Course Name:', selectedCourseName);
+        console.log('Course Name in Hidden Field:', document.getElementById('course_name').value);
+
+        const formData = new FormData(form);
+
+        for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+    }
+
+    fetch(form.action, {
+        method: form.method,
+        body: formData
+    }).then(response => {
+        if (response.ok) {
+            alert('Form submitted successfully!');
+            form.reset(); 
+            hideEnquiryForm(); 
+        } else {
+            alert('There was an issue submitting the form.');
+        }
+    }).catch(error => {
+        alert('There was an error submitting the form.');
+        console.error('Error:', error); 
+    });
+});
 </script>
 
 <!-- Blog script -->

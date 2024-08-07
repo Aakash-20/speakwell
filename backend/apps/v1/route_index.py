@@ -1,4 +1,4 @@
-from fastapi import Request, Form, Query, APIRouter, Depends
+from fastapi import Request, Form, Query, APIRouter, Depends, Response
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -68,8 +68,5 @@ async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
 
 
-# @router.get("/blog2", response_class=HTMLResponse)
-# async def read_item(request: Request):
-#     return templates.TemplateResponse("blog2.html", {"request": request, "message": "success"})
 
 

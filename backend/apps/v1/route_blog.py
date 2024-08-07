@@ -1,6 +1,5 @@
-from fastapi import APIRouter, Request, Depends, Form, File, UploadFile, HTTPException, status
+from fastapi import APIRouter, Request, Depends, Form, File, UploadFile, status, Response
 from fastapi.responses import HTMLResponse, RedirectResponse 
-from typing import Optional
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from schemas.blog import CreateBlog
@@ -18,6 +17,7 @@ router = APIRouter()
 UPLOAD_DIR = "template/blog/images"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+
 @router.get("/blog2", response_class=HTMLResponse)
 async def read_blogs(request: Request, db: Session = Depends(get_db)):
     try:
@@ -31,13 +31,10 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
             }
             for blog in blogs
         ]
+        print(blog_list)
         return templates.TemplateResponse("blog2.html", {"request": request, "blogs": blog_list})
     except Exception as e:
-        return templates.TemplateResponse(
-            "error.html", 
-            {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
-        )
-
+        return templates.TemplateResponse("error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"})
 
 
 @router.get("/blog/{blog_id}", response_class=HTMLResponse)
@@ -50,18 +47,10 @@ async def read_blog(request: Request, blog_id: int, db: Session = Depends(get_db
                 "content": blog.content
             }
             
-    print(blog)
     if blog is None:
         return templates.TemplateResponse(
-            "error.html", 
-            {"request": request, "message": "Blog not found or an error occurred"},
-            status_code=404
-        )
-    return templates.TemplateResponse("blog_post.html", {"request": request, "blog": blog})
-
-
-
-
+            "error.html", {"request": request, "message": "Blog not found or an error occurred"}, status_code=404)
+    return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog})
 
 
 @router.post("/admin/create-blog")
@@ -79,7 +68,7 @@ async def create_blog_post(
         
         if not is_admin(current_user.id):
             return RedirectResponse(
-                url="/admin?message=You do not have permission to create blog posts",
+                url="/admin_index?message=You do not have permission to create blog posts",
                 status_code=status.HTTP_303_SEE_OTHER)
 
         image_url = None
@@ -93,9 +82,9 @@ async def create_blog_post(
         blog = CreateBlog(title=title, content=content)
         new_blog = create_new_blog(blog=blog, db=db, author_id=current_user.id, image_url=image_url)
         
-        return RedirectResponse(url="/admin?message=Blog created successfully", status_code=status.HTTP_303_SEE_OTHER)
+        return RedirectResponse(url="/admin_index?message=Blog created successfully", status_code=status.HTTP_303_SEE_OTHER)
     except Exception as e:
-        print(f"Error creating blog: {str(e)}")
+        # print(f"Error creating blog: {str(e)}")
         errors = ["An error occurred while creating the blog"]
         if "Could not validate credentials" in str(e):
             errors = ["Please log in to create a blog"]
@@ -114,10 +103,17 @@ def delete_a_blog(request: Request, id: int, db: Session = Depends(get_db)):
         msg = delete_blog_by_id(id=id, author_id=author.id, db=db)
         alert = msg.get("error") or msg.get("msg")
         return RedirectResponse(
-            f"/admin?alert={alert}", status_code=status.HTTP_302_FOUND)
+            f"/admin_index?alert={alert}", status_code=status.HTTP_302_FOUND)
     except Exception as e:
         print(f"Exception raised while deleting {e}")
         blog = retrieve_blog(id=id, db=db)
         return templates.TemplateResponse(
             "error.html",
             {"request": request, "alert": "Please Login Again", "blog": blog})
+    
+
+@router.get("/logout")
+async def logout(response: Response):
+    response = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
+    response.delete_cookie(key="access_token")
+    return response
