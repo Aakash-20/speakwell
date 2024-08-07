@@ -16,12 +16,10 @@ router = APIRouter()
 
 
 UPLOAD_DIR = "template/blog/images"
-if not os.path.exists(UPLOAD_DIR):
-    os.makedirs(UPLOAD_DIR)
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-
-@router.get("/blog", response_class=HTMLResponse)
-async def read_item(request: Request, message: Optional[str] = None, db: Session = Depends(get_db)):
+@router.get("/blog2", response_class=HTMLResponse)
+async def read_blogs(request: Request, db: Session = Depends(get_db)):
     try:
         blogs = list_blogs(db=db)
         blog_list = [
@@ -33,36 +31,37 @@ async def read_item(request: Request, message: Optional[str] = None, db: Session
             }
             for blog in blogs
         ]
-        return templates.TemplateResponse("blog.html", {"request": request, "blogs": blog_list})
-    except HTTPException as e:
-        return templates.TemplateResponse("error.html", {"request": request, "message": str(e.detail)})
+        return templates.TemplateResponse("blog2.html", {"request": request, "blogs": blog_list})
     except Exception as e:
-        print(f"Error retrieving blogs: {str(e)}")
         return templates.TemplateResponse(
-            "error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
+            "error.html", 
+            {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
         )
 
 
-@router.get("/blog/{id}", response_class=HTMLResponse)
-async def read_blog(request: Request, id: int, db: Session = Depends(get_db)):
-    try:
-        blog = retrieve_blog(db, id)
-        print("Blogs:", blog)
-        if blog is None:
-            raise HTTPException(status_code=404, detail="Blog not found")
-        return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog})
-    except HTTPException as e:
-        return templates.TemplateResponse("error.html", {"request": request, "message": str(e.detail)})
-    except Exception as e:
-        print(f"Error retrieving blog: {str(e)}")
+
+@router.get("/blog/{blog_id}", response_class=HTMLResponse)
+async def read_blog(request: Request, blog_id: int, db: Session = Depends(get_db)):
+    blog = retrieve_blog(id=blog_id, db=db)
+    blog = {
+                "id": blog.id,
+                "image": blog.image,
+                "title": blog.title,
+                "content": blog.content
+            }
+            
+    print(blog)
+    if blog is None:
         return templates.TemplateResponse(
-            "error.html", {"request": request, "message": f"Error retrieving blog: {str(e)}"}
+            "error.html", 
+            {"request": request, "message": "Blog not found or an error occurred"},
+            status_code=404
         )
+    return templates.TemplateResponse("blog_post.html", {"request": request, "blog": blog})
 
 
-@router.get("/blog2", response_class=HTMLResponse)
-async def read_item(request: Request):
-    return templates.TemplateResponse("blog2.html", {"request": request, "message": "success"})
+
+
 
 
 @router.post("/admin/create-blog")
