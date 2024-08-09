@@ -42,11 +42,11 @@
     <section class="intro-section">
         <h1>[ Gallery ]</h1>
     </section>
-
+    
     <div class="gallery">
       {% for image in images %}
-            <img src="{{ image.url }}" alt="{{ image.filename }}">
-        {% endfor %}
+        <img src="{{ image.url }}" alt="{{ image.filename }}">
+      {% endfor %}
     </div>
     
     <div id="Whatsapp"></div>

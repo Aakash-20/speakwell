@@ -77,14 +77,14 @@ async def create_blog_post(
             image_path = os.path.join(UPLOAD_DIR, file.filename)
             with open(image_path, "wb") as f:
                 f.write(image_data)
-            image_url = f"{request.base_url}images/{file.filename}"
+            image_url = f"{request.base_url}blogs_image/{file.filename}"
 
         blog = CreateBlog(title=title, content=content)
         new_blog = create_new_blog(blog=blog, db=db, author_id=current_user.id, image_url=image_url)
         
         return RedirectResponse(url="/admin_index?message=Blog created successfully", status_code=status.HTTP_303_SEE_OTHER)
     except Exception as e:
-        # print(f"Error creating blog: {str(e)}")
+        print(f"Error creating blog: {str(e)}")
         errors = ["An error occurred while creating the blog"]
         if "Could not validate credentials" in str(e):
             errors = ["Please log in to create a blog"]
@@ -112,8 +112,3 @@ def delete_a_blog(request: Request, id: int, db: Session = Depends(get_db)):
             {"request": request, "alert": "Please Login Again", "blog": blog})
     
 
-@router.get("/logout")
-async def logout(response: Response):
-    response = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
-    response.delete_cookie(key="access_token")
-    return response

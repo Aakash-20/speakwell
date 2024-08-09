@@ -14,7 +14,8 @@ def include_router(app):
 
 def configure_staticfiles(app):
     app.mount("/static", StaticFiles(directory="template/css"), name="static")
-    app.mount("/images", StaticFiles(directory="template/gallery"), name="images")
+    app.mount("/image_gallery", StaticFiles(directory="template/gallery", check_dir=True), name="image_gallery")
+    app.mount("/blogs_image", StaticFiles(directory="template/blog/images", check_dir=True), name="blogs_image")
     app.mount("/background", StaticFiles(directory="template/background"), name="background")
 
 

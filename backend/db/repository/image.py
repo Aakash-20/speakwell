@@ -28,7 +28,7 @@ async def create_upload_files_logic(request, files: List[UploadFile], db: Sessio
             f.write(contents)
 
         base_url = get_base_url(request)
-        url = f"{base_url}images/{filename}"
+        url = f"{base_url}image_gallery/{filename}"
 
         db_image = Image(filename=filename, url=url)
         db.add(db_image)
@@ -50,7 +50,7 @@ async def create_upload_file_logic(request, file, db: Session):
         f.write(contents)
 
     base_url = get_base_url(request)
-    url = f"{base_url}images/{filename}"
+    url = f"{base_url}image_gallery/{filename}"
 
     db_image = Image(filename=filename, url=url)
     db.add(db_image)
@@ -65,7 +65,7 @@ async def get_image_info_logic(filename: str, request, db: Session):
         raise HTTPException(status_code=404, detail="Image not found")
 
     base_url = get_base_url(request)
-    url = f"{base_url}image/get/{filename}"
+    url = f"{base_url}image_gallery/{filename}"
 
     return ImageResponse(
         id=db_image.id,
@@ -85,7 +85,7 @@ async def get_all_images_logic(request: Request, db: Session) -> List[ImageListR
     
     image_list = []
     for db_image in db_images:
-        url = f"{base_url}image/get/{db_image.filename}"
+        url = f"{base_url}image_gallery/{db_image.filename}"
         image_response = ImageListResponse(
             id=db_image.id,
             filename=db_image.filename,
@@ -103,7 +103,7 @@ def get_all_images(db: Session) -> List[dict]:
         {
             "id": image.id,
             "filename": image.filename,
-            "created_at": image.created_at
+            "image_url": image.url
         }
         for image in db_images
     ]

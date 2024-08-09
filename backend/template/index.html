@@ -741,23 +741,17 @@
             <h1>Images</h1>
         </section>
         <div class="slider-container">
-        <div class="container">
-            <div class="slider-wrapper">
-            <button class="slider-button pre">&#9664;</button>
-            <ul class="image-list">
-                <li><img class="image-item" src="images/9.jpeg" alt="img-1" /></li>
-                <li><img class="image-item" src="images/2.jpeg" alt="img-2" /></li>
-                <li><img class="image-item" src="images/3.jpeg" alt="img-3" /></li>
-                <li><img class="image-item" src="images/4.jpeg" alt="img-4" /></li>
-                <li><img class="image-item" src="images/5.jpeg" alt="img-5" /></li>
-                <li><img class="image-item" src="images/6.jpeg" alt="img-6" /></li>
-                <li><img class="image-item" src="images/7.jpeg" alt="img-7" /></li>
-                <li><img class="image-item" src="images/8.jpeg" alt="img-8" /></li>
-                <li><img class="image-item" src="images/1.jpeg" alt="img-9" /></li>
-            </ul>
-            <button class="slider-button nex">&#9654;</button>
+            <div class="container">
+                <div class="slider-wrapper">
+                    <button class="slider-button pre">&#9664;</button>
+                    <ul class="image-list">
+                        {% for image in images %}
+                        <li><img class="image-item" src="{{ image.url }}" alt="{{ image.filename }}"></li>
+                        {% endfor %}
+                    </ul>
+                    <button class="slider-button nex">&#9654;</button>
+                </div>
             </div>
-        </div>
         </div>
 
         <section class="why_us" id="why">

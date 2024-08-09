@@ -1,9 +1,9 @@
-from fastapi import Request, Form, Query, APIRouter, Depends, Response
-from fastapi.responses import HTMLResponse
+from fastapi import Request, Form, Query, APIRouter, Depends, Response, status
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
-from db.repository.image import get_all_images_logic
+from db.repository.image import get_all_images_logic, get_all_images
 from db.repository.blog import list_blogs
 
 
@@ -24,7 +24,9 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
             }
             for blog in blogs
         ]
-        return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list})
+        images = await get_all_images_logic(db=db, request=request)
+
+        return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list, "images": images})
     except Exception as e:
         return templates.TemplateResponse(
             "error.html", 
@@ -59,14 +61,18 @@ async def read_item(request: Request):
 
 @router.get("/gallery")
 async def read_images(request: Request, db: Session = Depends(get_db)):
-    images = await get_all_images_logic(request, db)
+    images = await get_all_images_logic(db=db, request=request)
+    print(images)
     return templates.TemplateResponse("gallery.html", {"request": request, "images": images})
-
 
 @router.get("/why_us")
 async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
 
 
-
+@router.get("/logout")
+async def logout(response: Response):
+    response = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
+    response.delete_cookie(key="access_token")
+    return response
 
