@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>contact Us</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="/static/table.css">
+    <link rel="stylesheet" href="/static/dashboard.css">
+  </head>
+  <body>
+    <div class="backend-root">
+      <header>
+        <div class="header-section">
+          <div class="header-content">
+            <div class="header-container logo">
+              <img src="/background/swl3.png" class="platform-logo">
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="body-root">
+        <div class="body-section">
+          <div class="body-content">
+            <div class="sidebar">
+              <div class="sidebar-content">
+                <div class="sidebar-container sidebar-menu">
+                  <a href="/admin_index" class="menu-item"><i class="fas fa-edit menu-icon"></i>Blog's</a>
+                  <a href="/admin_image" class="menu-item"><i class="fas fa-image menu-icon"></i>Image's</a>
+                  <a href="/admin/contact" class="menu-item"><i class="fas fa-comments menu-icon"></i>Contact Us</a>
+                  <a href="/admin/enquiry" class="menu-item"><i class="fas fa-comment menu-icon"></i>Enquiry</a>
+                  <a href="/logout" class="menu-item"><i class="fas fa-sign-out-alt menu-icon"></i>Log Out</a>
+                </div>
+              </div>
+            </div>
+            <div class="main">
+              <div class="main-content">
+                <form method="GET" action="/admin/contacts"  name="listForm" class="form scrollX">
+                  <div class="main-container new-blog">
+                    <h2>CONTACT US</h2>
+                  </div>
+                  <div class="table">
+                    <div class="row bg-1">
+                      <div class="cell cell-100p text-fff">NAME</div>
+                      <div class="cell cell-20 text-fff">PHONE NO.</div>
+                      <div class="cell cell-10 text-center text-fff">MESSAGE</div>
+                      <div class="cell cell-100 text-center text-fff">BRANCH</div>
+                    </div>
+                    <ul>
+                      {% for contact in contacts %}
+                      <li class="row">
+                        <div class="cell cell-100p">{{ contact.name }}</div>
+                        <div class="cell cell-20">{{ contact.phone_no }}</div>
+                        <div class="cell cell-10 text-center">{{ contact.message }}</div>
+                        <div class="cell cell-100 text-center">{{ contact.branch }}</div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

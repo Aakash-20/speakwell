@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BlogP</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Blog2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/static/Header.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/Footer.css" />
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/keyfactor">Key Factors</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/blog2">Blogs</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <div class="buttons">
+                    <a href="/login" class="signin">Sign In</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="intro-section">
+        <h1>[ Blog's ]</h1>
+    </section>
+
+    <div id="top"></div>
+    <section class="gallery">
+        <div class="row">
+            <ul>
+                {% for blog in blogs %}
+                    <li>
+                        <a href="#item{{ blog.id }}">
+                            <img src="{{ blog.image }}" alt="{{ blog.title }}">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% for blog in blogs %}
+            <div id="item{{ blog.id }}" class="port">
+                <div class="row">
+                    <div class="description">
+                        <h1>{{ blog.title }}</h1>
+                        <p>{{ blog.content }}</p>
+                    </div>
+                    <img src="{{ blog.image }}" alt="{{ blog.title }}">
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <div id="Whatsapp"></div>
+
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="/"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="/keyfactor"><i class="fa fa-angle-double-right"></i>Key Factor</a></li>
+                        <li><a href="/gallery"><i class="fa fa-angle-double-right"></i>Gallery</a></li>
+                        <li><a href="/blog2"><i class="fa fa-angle-double-right"></i>Blog's</a></li>
+                        <li><a href="/contact"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $('.gallery ul li a').click(function() {
+                var itemID = $(this).attr('href');
+                $('.gallery ul').addClass('item_open');
+                $(itemID).addClass('item_open');
+                return false;
+            });
+            $('.close').click(function() {
+                $('.port, .gallery ul').removeClass('item_open');
+                return false;
+            });
+        });
+    </script>
+
+    <script>
+        fetch('/whatsapp')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('Whatsapp').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

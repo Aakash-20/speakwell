@@ -3,3 +3,5 @@ from db.base_class import Base
 from db.models.user import User
 from db.models.blog import Blog
 from db.models.enquiry import Enquiry
+from db.models.contactus import Contact
+from db.models.image import Image

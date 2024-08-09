@@ -1,28 +1,30 @@
 from typing import Optional
-from pydantic import BaseModel, root_validator
-from datetime import date
+from pydantic import BaseModel
+from datetime import datetime
+
 
 class CreateBlog(BaseModel):
     title: str
-    slug: str
-    content: Optional[str] = None
+    content: Optional[str] = ""
+    slug: Optional[str] = ""
 
-    @root_validator(pre=True)
-    def generate_slug(cls, values):
-        if 'title' in values:
-            values["slug"] = values.get("title").replace(" ", "-").lower()
-        return values
-    
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.title and not self.slug:
+            self.slug = self.title.replace(" ", "-").lower()
+
+
 class UpdateBlog(CreateBlog):
     pass
-    
+
+
 class ShowBlog(BaseModel):
-    title:str 
-    content: Optional[str]
-    created_at: date
+    id: int
+    title: str
+    content: str
+    author_id: int
+    created_at: datetime
+    image: str | None
 
-    class Config():
+    class Config:
         from_attributes = True
-
-
-

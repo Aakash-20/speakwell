@@ -1,0 +1,79 @@
+/* gallery.css */
+
+.intro-section {
+  background-color: rgb(255, 123, 0);
+  color: #ffffff;
+  text-align: center;
+  padding: 110px 0 50px;
+}
+
+.intro-section h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 55px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: .8;
+  padding-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.intro-section p {
+  padding-top: 30px;
+}
+
+.gallery {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  padding-top: 1.6%; 
+}
+
+.gallery img {
+  width: 20%;
+  margin: 10px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.gallery img:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(255, 123, 0, 0.295); 
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    padding-top: 6%;
+    font-size: 180%;
+    margin-top: 50px;
+  }
+  .gallery img {
+    width: 22%;
+    margin: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    padding-top: 4%;
+    font-size: 160%;
+    margin-top: 40px;
+  }
+  .gallery img {
+    width: 30%;
+    margin: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro {
+    padding-top: 2%;
+    font-size: 140%;
+    margin-top: 30px;
+  }
+  .gallery img {
+    width: 45%;
+    margin: 4px;
+  }
+}

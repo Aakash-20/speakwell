@@ -1,0 +1,98 @@
+/* Importing Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* Reset styles and global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Defining Custom Variables */
+:root {
+    /* Colors */
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --dark-color: #252525;
+    --white-color: #fff;
+    --light-gray-color: #f2f2f2;
+    /* Site Max-Width */
+    --site-max-width: 1800px;
+}
+
+/* Why Us Section */
+.why_us {
+    padding: 60px 20px; 
+    text-align: center;
+}
+
+.section_container {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px; 
+    
+}
+
+.why_us .section_title {
+    font-size: 2.5rem;
+    margin-bottom: 20px; 
+    color: rgb(255, 123, 0);
+    font-size: 35px;
+    font-weight: 900;
+    padding-bottom: 2%;
+}
+
+.why_us p {
+    margin-top: 30px; 
+    text-align: center;
+    text-align: left;
+    font-size: 110%;
+}
+
+.why_us .why_container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px; 
+}
+
+.why_container .why_items {
+    width: calc(50% - 20px); 
+    padding: 20px; 
+    background: rgba(255, 166, 0, 0.171);
+    border: 1px solid var(--light-gray-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .why_container .why_items {
+        width: calc(33.33% - 20px); 
+    }
+}
+
+@media (min-width: 1024px) {
+    .why_container .why_items {
+        width: calc(25% - 20px); 
+    }
+}
+
+.why_container .why_items img {
+    width: 90px; 
+    height: 90px; 
+    object-fit: contain; 
+}
+
+.why_items .why_us_text {
+    text-align: center;
+}
+
+.why_items .why_us_text h3 {
+    margin: 10px 0; 
+    font-size: 1.5rem; 
+}
+
+.why_items .why_us_text p {
+    font-size: 1rem; 
+}

@@ -1,0 +1,184 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+form {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Form Header */
+.formHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.formHeader .fl {
+    flex: 1;
+}
+
+.formHeader .fr {
+    display: flex;
+    align-items: center;
+}
+
+/* Buttons */
+.btnSave, .btnAdd, .btnRemove, .btnEdit {
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnSave {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.btnAdd {
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+
+.btnRemove {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.btnRemove::before {
+    content: "\f00d"; /* FontAwesome icon code for 'fa-remove' */
+    font-family: FontAwesome;
+    margin-right: 5px;
+}
+
+.btnEdit {
+    background-color: #FFA500; /* Orange */
+    color: white;
+}
+
+.btnEdit::before {
+    content: "\f040"; /* FontAwesome icon code for 'fa-pencil' */
+    font-family: FontAwesome;
+    margin-right: 5px;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.cell {
+    flex: 1;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.cell-50 {
+    flex: 0 0 50px;
+}
+
+.cell-100 {
+    flex: 0 0 100px;
+}
+
+.cell-100p {
+    flex: 1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-fff {
+    color: #fff;
+}
+
+.bg-1 {
+    background-color: #333; /* Dark background */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    border-bottom: 1px solid #ddd;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.edit-remove {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: row; 
+        font-size: 13px; 
+    }
+
+    .cell {
+        width: 100%;
+        padding: 8px; 
+        text-align: left;
+    }
+
+    .cell-50, .cell-100, .cell-100p {
+        width: 100%;
+    }
+    
+    .cell-50 {
+        display: none; 
+    }
+
+    .btnEdit {
+        padding: 6px 10px;
+        font-size: 10px; 
+        width: auto;
+    }
+}

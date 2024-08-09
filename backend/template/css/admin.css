@@ -1,0 +1,17 @@
+    body {
+        background: #ffffff;
+      }
+      .body-root {
+        min-height: 85.3vh;
+      }
+      .body-section {
+        padding: 0px 0px;
+      }
+      @media (max-width: 480px) {
+        .body-root {
+          min-height: 74.5vh;
+        }
+        .body-section {
+          padding: 0px 0px;
+        }
+      }

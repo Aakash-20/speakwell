@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" href="/static/Admin.css">
+    <link rel="stylesheet" href="/static/Header.css">
+    <link rel="stylesheet" href="/static/Popup.css">
+    <link rel="stylesheet" href="/static/ContactUs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="body-root">
+      <div class="body-section">
+        
+        <header class="header">
+          <nav class="navbar">
+            <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
+            <ul class="links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/keyfactor">Key Factors</a></li>
+              <li><a href="/gallery">Gallery</a></li>
+              <li><a href="/blog2">Blogs</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+              <div class="buttons">
+                <a href="/login" class="signin">Sign In</a>
+              </div>
+            </ul>
+          </nav>
+        </header>
+
+        <div class="contact-section">
+          <div class="contact">
+            <h1>Contact Us</h1>
+          </div>
+          <div class="containerr">
+            <div class="content">
+              <div class="left-side">
+                <div class="address details">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="topic">Address</div>
+                  <div class="text-one">Plot No, 11, Ambazari Rd, beside Port O Gomez Restaurant,<br> Daga Layout, Gandhi Nagar, Nagpur, Maharashtra 440010</div>
+                </div>
+                <div class="phone details">
+                  <i class="fas fa-phone-alt"></i>
+                  <div class="topic">Phone</div>
+                  <div class="text-one">07757854042</div>
+                </div>
+                <div class="email details">
+                  <i class="fas fa-envelope"></i>
+                  <div class="topic">Email</div>
+                  <div class="text-one">admissions@starsacademy.in</div>
+                </div>
+              </div>
+              <div class="right-side">
+                <div class="topic-text">Send us a message</div>
+                <p>If you have any work from me or any types of queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.</p>
+
+                <form class="contactForm" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                  <div class="input-box">
+                    <select name="branch" required>
+                      <option value="" disabled selected>Select Branch</option>
+                      <option value="branch1">Branch 1</option>
+                      <option value="branch2">Branch 2</option>
+                      <option value="branch3">Branch 3</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="access_key" value="8106ef89-99b4-458c-9f3f-ddefb3b77b8e">
+
+                  <div class="input-box">
+                    <input type="text" name="name" placeholder="Enter your Name" required>
+                  </div>
+                  <div class="input-box">
+                    <input type="text" name="email" placeholder="Enter your Email" required>
+                  </div>
+                  <div class="input-box">
+                    <input type="tel" name="phone_no" placeholder="Enter your Phone Number" required>
+                  </div>
+                  <div class="input-box">
+                    <input type="text" name="message" placeholder="Enter your Message">
+                  </div>
+                  <div class="button">
+                    <input type="submit" value="Send Now">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="container map_sec">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <div class="map_inner">
+                  <h4>Find Us on Google Map</h4>
+                  <p>Speakwell Spoken English Language Classes- Best English And Personality Development Training Institute I Best English Academy</p>
+                  <div class="map_bind">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29775.523027252115!2d79.00946707266537!3d21.11494303996961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1ddc78f4fc1%3A0x3d19bd52ea961896!2sSpeakwell%20Spoken%20English%20Language%20Classes-%20Best%20English%20And%20Personality%20Development%20Training%20Institute%20I%20Best%20English%20Academy!5e0!3m2!1sen!2sin!4v1720077364131!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>   
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Your form submission logic here
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+          method: form.method,
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            alert('Form submitted successfully!');
+            form.reset(); // Reset the form fields
+          } else {
+            alert('There was an issue submitting the form.');
+          }
+        }).catch(error => {
+          alert('There was an error submitting the form.');
+        });
+      });
+    </script>
+    
+  </body>
+</html>
