@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/Blog2.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="/static/Header.css">
+    <link rel="stylesheet" href="/static/HEADER.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/Footer.css" />
@@ -50,6 +50,7 @@
 
         {% for blog in blogs %}
             <div id="item{{ blog.id }}" class="port">
+                <span class="close">&times;</span>
                 <div class="row">
                     <div class="description">
                         <h1>{{ blog.title }}</h1>

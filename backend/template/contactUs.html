@@ -5,8 +5,7 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" href="/static/Admin.css">
-    <link rel="stylesheet" href="/static/Header.css">
-    <link rel="stylesheet" href="/static/Popup.css">
+    <link rel="stylesheet" href="/static/HEADER.css">
     <link rel="stylesheet" href="/static/ContactUs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   </head>
@@ -61,6 +60,7 @@
 
                 <form class="contactForm" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
 
+                  <input type="hidden" name="title" value="Contact Us"> 
                   <div class="input-box">
                     <select name="branch" required>
                       <option value="" disabled selected>Select Branch</option>

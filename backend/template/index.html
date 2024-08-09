@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" href="/static/Admin.css">
 
-    <link rel="stylesheet" href="/static/Header.css" />
+    <link rel="stylesheet" href="/static/HEADER.css" />
 
     <link rel="stylesheet" href="/static/WhyUs.css">
 
@@ -691,6 +691,7 @@
                 <input type="hidden" name="access_key" value="8106ef89-99b4-458c-9f3f-ddefb3b77b8e">
                 <input type="hidden" id="course_name" name="course_name" value="">
     
+                <input type="hidden" name="title" value="Enquiry Form"> 
               <label for="course">Course:</label>
               <select id="course" name="course" required>
                   <option value="" disabled selected>Select a course</option>
@@ -824,9 +825,15 @@
                         <img src="{{ blog.image }}" alt="">
                     </div>
                     <div class="blog-slider__content">
-                        <span class="blog-slider__code">{{ blog.date | default('Unknown Date') }}</span>
                         <div class="blog-slider__title">{{ blog.title }}</div>
-                        <div class="blog-slider__text">{{ blog.content }}</div>
+                        <div class="blog-slider__text">
+                            {% set content_words = blog.content.split() %}
+                            {% if content_words|length > 50 %}
+                                {{ content_words[:50] | join(' ') }}...
+                            {% else %}
+                                {{ blog.content }}
+                            {% endif %}
+                        </div>        
                         <a href="/blog2" class="blog-slider__button">READ MORE</a>
                     </div>
                 </div>
@@ -866,7 +873,7 @@
                 </div>	
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                        <p><u><a href="#"></a></u> Copyright © 2024 Speakwell Spoken English Classes. </p>
                     </div>
                     </hr>
                 </div>	

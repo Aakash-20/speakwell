@@ -70,6 +70,16 @@ async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
 
 
+@router.get("/contact", response_class=HTMLResponse)
+async def get_contact_form(request: Request):
+    return templates.TemplateResponse("contactUs.html", {"request": request})
+
+
+@router.get("/enquiry", response_class=HTMLResponse)
+async def get_enquiry_form(request: Request):
+    return templates.TemplateResponse("keyfactor.html", {"request": request})
+
+
 @router.get("/logout")
 async def logout(response: Response):
     response = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
