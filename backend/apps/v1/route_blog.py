@@ -37,20 +37,28 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
         return templates.TemplateResponse("error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"})
 
 
+@router.get("/blog/{blog_id}/{slug}", response_class=HTMLResponse)
 @router.get("/blog/{blog_id}", response_class=HTMLResponse)
-async def read_blog(request: Request, blog_id: int, db: Session = Depends(get_db)):
+async def read_blog(request: Request, blog_id: int, slug: str = None, db: Session = Depends(get_db)):
     blog = retrieve_blog(id=blog_id, db=db)
-    blog = {
-                "id": blog.id,
-                "image": blog.image,
-                "title": blog.title,
-                "content": blog.content
-            }
-            
+    
     if blog is None:
         return templates.TemplateResponse(
             "error.html", {"request": request, "message": "Blog not found or an error occurred"}, status_code=404)
-    return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog})
+    
+    blog_data = {
+        "id": blog.id,
+        "image": blog.image,
+        "title": blog.title,
+        "content": blog.content,
+        "slug": blog.slug
+    }
+    
+    # If slug is not provided or doesn't match, redirect to the correct URL
+    if slug is None or slug != blog.slug:
+        return RedirectResponse(url=f"/blog/{blog_id}/{blog.slug}", status_code=301)
+    
+    return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog_data})
 
 
 @router.post("/admin/create-blog")

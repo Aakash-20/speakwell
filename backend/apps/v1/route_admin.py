@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 from db.session import get_db
 from core.config import settings
 from jose import jwt, JWTError
+from db.repository.address import create_new_address, list_addresses, remove_address
+
 
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
@@ -57,3 +59,14 @@ def admin_home(request: Request, db: Session = Depends(get_db), user: dict = Dep
 async def fetch_all_images(request: Request, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
     images = get_all_images(db=db)
     return templates.TemplateResponse("admin_image.html", {"request": request, "images": images})
+
+
+@router.get("/admin_contact", response_class=HTMLResponse)
+async def fetch_contactus(request: Request, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
+    addresses = list_addresses(db=db)
+    return templates.TemplateResponse("admin_contactus.html", {"request": request, "addresses": addresses})
+
+
+@router.get("/admin_review", response_class=HTMLResponse)
+async def fetch_review(request: Request,  user: dict = Depends(get_current_user)):
+    return templates.TemplateResponse("admin_review.html", {"request": request})

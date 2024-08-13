@@ -10,8 +10,14 @@ from db.repository.blog import list_blogs
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
+from fastapi.responses import RedirectResponse
 
-@router.get("/", response_class=HTMLResponse)
+@router.get("/")
+async def redirect_to_main():
+    return RedirectResponse("/Speakwell/Nagpur/Top-English-Speaking-&-Personality-Development-Classes")
+
+
+@router.get("/Speakwell/Nagpur/Top-English-Speaking-&-Personality-Development-Classes", response_class=HTMLResponse)
 async def read_blogs(request: Request, db: Session = Depends(get_db)):
     try:
         blogs = list_blogs(db=db)
@@ -70,7 +76,7 @@ async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
 
 
-@router.get("/contact", response_class=HTMLResponse)
+@router.get("/contact-us/best-spoken-english-classes-in-Nagpur", response_class=HTMLResponse)
 async def get_contact_form(request: Request):
     return templates.TemplateResponse("contactUs.html", {"request": request})
 
