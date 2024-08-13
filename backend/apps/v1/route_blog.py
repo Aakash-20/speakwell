@@ -31,7 +31,6 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
             }
             for blog in blogs
         ]
-        print(blog_list)
         return templates.TemplateResponse("blog2.html", {"request": request, "blogs": blog_list})
     except Exception as e:
         return templates.TemplateResponse("error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"})

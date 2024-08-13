@@ -52,15 +52,14 @@
                     <a href="/logout" class="menu-item"><i class="fas fa-sign-out-alt menu-icon"></i>Log Out</a>
                 </div>
             </div>
-
             <div class="main-content">
               <div class="main-container add-widget">
                 <h2>Add Elfsight Widget HTML</h2>
                 <div class="add-widget-form">
-                  <form action="/submit_widget/" method="POST">
+                  <form action="/admin/url/1" method="POST">
                     <div class="form-field field-1 medium">
                       <label for="widget-code">Elfsight Widget Code</label>
-                      <textarea id="widget-code" rows="10" name="widget" placeholder="Paste your Elfsight widget code here..." required class="large-textarea">{{ widget }}</textarea>
+                      <textarea id="widget-code" rows="10" name="url" placeholder="Paste your Elfsight widget code here..." required class="large-textarea">{{ widget }}</textarea>
                     </div>
                     <div class="add-widget-actions">
                       <div class="button-container">
@@ -70,10 +69,9 @@
                   </form>
                 </div>
               </div>
-
               <div class="preview-container">
                 <h2>Preview of the Widget</h2>
-                <div id="elfsight-widget">{{ widget }}</div>
+                <div id="elfsight-widget">{{ widget|safe }}</div>
               </div>
             </div>
           </div>
@@ -82,7 +80,3 @@
     </div>
   </body>
 </html>
-
-
-
-

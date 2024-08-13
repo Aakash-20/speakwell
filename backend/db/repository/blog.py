@@ -28,22 +28,7 @@ def retrieve_blog(id: int, db: Session) -> Optional[Blog]:
 
 
 def list_blogs(db: Session) -> List[Blog]:
-    return db.query(Blog).order_by(desc(Blog.created_at)).all()
-
-
-def update_blog_by_id(id: int, blog: UpdateBlog, db: Session, author_id: int) -> Union[Blog, Dict[str, str]]:
-    blog_in_db = db.query(Blog).filter(Blog.id == id).first()
-    if not blog_in_db:
-        return {"error": f"Blog with id {id} does not exist"}
-    if blog_in_db.author_id != author_id:
-        return {"error": "Only the author can modify the blog"}
-
-    blog_in_db.title = blog.title
-    blog_in_db.content = blog.content
-    db.add(blog_in_db)
-    db.commit()
-    db.refresh(blog_in_db)
-    return blog_in_db
+    return db.query(Blog).order_by(desc(Blog.created_at)).limit(10).all()
 
 
 def delete_blog_by_id(id: int, db: Session, author_id: int) -> Dict[str, str]:

@@ -76,7 +76,7 @@ async def get_image_info_logic(filename: str, request, db: Session):
 
 
 async def get_all_images_logic(request: Request, db: Session) -> List[ImageListResponse]:
-    db_images = db.query(Image).all()
+    db_images = db.query(Image).order_by(desc(Image.created_at)).limit(10).all()
     
     if not db_images:
         return [] 
