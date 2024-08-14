@@ -5,7 +5,8 @@ from sqlalchemy.orm import Session
 from db.session import get_db
 from db.repository.image import get_all_images_logic, get_all_images
 from db.repository.blog import list_blogs
-
+from db.repository.url import get_url_by_id
+from db.repository.address import list_addresses
 
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
@@ -31,8 +32,8 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
             for blog in blogs
         ]
         images = await get_all_images_logic(db=db, request=request)
-
-        return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list, "images": images})
+        url = get_url_by_id(db=db, url_id=1)
+        return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list, "images": images, "widget": url.url})
     except Exception as e:
         return templates.TemplateResponse(
             "error.html", 
@@ -76,9 +77,10 @@ async def get_why_us(request: Request):
     return templates.TemplateResponse("whyUs.html", {"request": request})
 
 
-@router.get("/contact-us/best-spoken-english-classes-in-Nagpur", response_class=HTMLResponse)
-async def get_contact_form(request: Request):
-    return templates.TemplateResponse("contactUs.html", {"request": request})
+@router.get("/best-spoken-english-classes-in-Nagpur", response_class=HTMLResponse)
+async def get_contact_form(request: Request, db: Session = Depends(get_db)):
+    addresses = list_addresses(db=db)
+    return templates.TemplateResponse("contactUs.html", {"request": request, "addresses": addresses})
 
 
 @router.get("/enquiry", response_class=HTMLResponse)

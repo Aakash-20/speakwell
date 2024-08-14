@@ -45,15 +45,15 @@
                     <form class="new-blog-form" action="/admin/create-blog" method="POST" enctype="multipart/form-data">
                       <div class="form-field field-1 medium">
                         <label for="post-title">Blog Title</label>
-                        <input id="post-title" type="text" name="title">
+                        <input id="post-title" type="text" name="title" required>
                       </div>
                       <div class="form-field field-2 medium">
                         <label for="post-description">Blog Description</label>
-                        <textarea id="post-description" type="text" rows="4" name="content"></textarea>
+                        <textarea id="post-description" type="text" rows="4" name="content" required></textarea>
                       </div>
                       <div class="form-field field-3 short">
                         <label for="post-thumbnail">Blog Thumbnail</label>
-                        <input id="post-thumbnail" type="file" name="file" accept="image/*">
+                        <input id="post-thumbnail" type="file" name="file" accept="image/*" required>
                       </div>
                       <div class="new-post-actions">
                         <div class="button-container">

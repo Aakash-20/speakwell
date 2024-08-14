@@ -1,8 +1,8 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, Text, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-
 from db.base_class import Base
+
 
 class Blog(Base):
     id = Column(Integer, primary_key=True)

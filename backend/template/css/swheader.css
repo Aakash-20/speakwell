@@ -4,15 +4,11 @@
   width: 100%;
   top: 0;
   left: 0;
-  background: #ffffff; 
+  background: #00b9ad; 
   z-index: 1000;
 }
 .header {
   font-family: sans-serif; /* Replace 'YourFontName' with the desired font */
-}
-
-.header h2 {
-  font-weight: bold;
 }
 
 .main-content {
@@ -42,7 +38,7 @@
 }
 
 .navbar .links a {
-  font-size: 120%;
+  font-size: 150%;
   font-weight: 600;
   text-decoration: none;
   color: #000000;
@@ -51,7 +47,7 @@
 }
 
 .navbar .links a:hover {
-  color: rgb(255, 123, 0);
+  color: rgb(255, 255, 255);
 }
 
 .navbar .buttons a {
@@ -118,6 +114,11 @@
     left: 0;
     display: flex;
   }
+
+  .navbar .links a {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
 }
 
 
@@ -134,5 +135,10 @@
 
 .body-section {
   margin-top: 20px; /* Adjust this value as needed */
+}
+
+.logo-img {
+  width: 250px; /* Set your desired width */
+  height: auto; /* Maintain aspect ratio */
 }
 

@@ -40,7 +40,6 @@
     color: rgb(255, 123, 0);
     font-size: 35px;
     font-weight: 900;
-    padding-bottom: 2%;
 }
 
 .why_us p {
@@ -48,6 +47,9 @@
     text-align: center;
     text-align: left;
     font-size: 110%;
+    max-width: 1400px;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 .why_us .why_container {

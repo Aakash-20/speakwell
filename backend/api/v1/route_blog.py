@@ -7,7 +7,7 @@ from db.session import get_db
 from db.models.blog import Blog
 from api.v1.route_login import get_current_user
 from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
-from db.repository.blog import create_new_blog, retrieve_blog, list_blogs, update_blog_by_id, delete_blog_by_id, save_image_to_db, is_admin
+from db.repository.blog import create_new_blog, retrieve_blog, list_blogs,  delete_blog_by_id, is_admin
 
 
 UPLOAD_DIR = "template/blog/images"

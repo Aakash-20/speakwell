@@ -1,7 +1,7 @@
 from typing import Optional, List
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
-from schemas.address import AddressCreate, AddressList
+from schemas.address import AddressCreate
 from db.models.address import Address
 
 

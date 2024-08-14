@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HWBKGXF7C0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HWBKGXF7C0');
+</script>
     <meta charset="utf-8">
     <title>Contact Us</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
     <link rel="stylesheet" href="/static/Admin.css">
-    <link rel="stylesheet" href="/static/HEADER.css">
+    <link rel="stylesheet" href="/static/swheader.css">
     <link rel="stylesheet" href="/static/ContactUs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   </head>
@@ -15,59 +23,61 @@
         
         <header class="header">
           <nav class="navbar">
-            <h2 class="logo"><a href="#">SpeakWell <br> Spoken English Class</a></h2>
+            <a href="#" class="logo">
+                <img src="/background/swl.png" alt="SpeakWell" class="logo-img">
+              </a>
             <input type="checkbox" id="menu-toggle" />
             <label for="menu-toggle" id="hamburger-btn">&#9776;</label>
             <ul class="links">
               <li><a href="/">Home</a></li>
-              <li><a href="/keyfactor">Key Factors</a></li>
-              <li><a href="/gallery">Gallery</a></li>
-              <li><a href="/blog2">Blogs</a></li>
-              <li><a href="/contact-us/best-spoken-english-classes-in-Nagpur">Contact Us</a></li>
-              <div class="buttons">
+              <li><a href="/#keyfactor">Key Factors</a></li>
+              <li><a href="/#gallery">Gallery</a></li>
+              <li><a href="/#blog">Blogs</a></li>
+              <li><a href="/#about">About Us</a></li>
+              <li><a href="/best-spoken-english-classes-in-Nagpur">Contact Us</a></li>
+              <!-- <div class="buttons">
                 <a href="/login" class="signin">Sign In</a>
-              </div>
+              </div> -->
             </ul>
           </nav>
         </header>
 
         <div class="contact-section">
           <div class="contact">
-            <h1>Contact Us</h1>
+            <h1>Connect Us</h1>
           </div>
           <div class="containerr">
             <div class="content">
               <div class="left-side">
                 <div class="address details">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div class="topic">Address</div>
-                  <div class="text-one">Plot No, 11, Ambazari Rd, beside Port O Gomez Restaurant,<br> Daga Layout, Gandhi Nagar, Nagpur, Maharashtra 440010</div>
+                  <div class="topic">
+                  <i class="fas fa-map-marker-alt"></i>Head Office Address</div>
+                  <div class="text-one">Plot No, 11, Ambazari Rd, beside Port O Gomez Restaurant,<br> Daga Layout, Gandhi Nagar, Nagpur, Maharashtra 440010</div><br>
                 </div>
                 <div class="phone details">
-                  <i class="fas fa-phone-alt"></i>
-                  <div class="topic">Phone</div>
-                  <div class="text-one">07757854042</div>
+                  <div class="topic">
+                  <i class="fas fa-phone-alt"></i>Phone</div>
+                  <div class="text-one">7757854042  ||  7709376356</div><br>
                 </div>
                 <div class="email details">
-                  <i class="fas fa-envelope"></i>
-                  <div class="topic">Email</div>
-                  <div class="text-one">admissions@starsacademy.in</div>
+                  <div class="topic">
+                  <i class="fas fa-envelope"></i>Email</div>
+                  <div class="text-one">indiastopinstitute@gmail.com</div>
                 </div>
               </div>
               <div class="right-side">
-                <div class="topic-text">Send us a message</div>
-                <p>If you have any work from me or any types of queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.</p>
+                <div class="topic-text">Send Us A Message</div>
 
                 <form class="contactForm" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-
-                  <input type="hidden" name="title" value="Contact Us"> 
+                  
+                  <!-- <input type="hidden" name="title" value="Contact Us"> -->
                   <div class="input-box">
-                    <select name="branch" required>
+                    <select name="branch" id="branchSelect" required onchange="updateBranchName()">
                       <option value="" disabled selected>Select Branch</option>
-                      <option value="branch1">Branch 1</option>
-                      <option value="branch2">Branch 2</option>
-                      <option value="branch3">Branch 3</option>
-                    </select>
+                      {% for address in addresses %}
+                          <option value="{{ address.id }}">{{ address.address }}</option>
+                      {% endfor %}
+                  </select>
                   </div>
                   <input type="hidden" name="access_key" value="8106ef89-99b4-458c-9f3f-ddefb3b77b8e">
 
@@ -75,13 +85,10 @@
                     <input type="text" name="name" placeholder="Enter your Name" required>
                   </div>
                   <div class="input-box">
-                    <input type="text" name="email" placeholder="Enter your Email" required>
+                    <input type="tel" name="phone_no" placeholder="Enter your Phone Number" required pattern="[0-9]{10,}" minlength="10" maxlength="10" title="Please enter at least 10 digits">
                   </div>
                   <div class="input-box">
-                    <input type="tel" name="phone_no" placeholder="Enter your Phone Number" required>
-                  </div>
-                  <div class="input-box">
-                    <input type="text" name="message" placeholder="Enter your Message">
+                    <input type="text" name="message" row="4" placeholder="Enter your Message">
                   </div>
                   <div class="button">
                     <input type="submit" value="Send Now">
@@ -94,18 +101,46 @@
             <div class="row">
               <div class="col-md-10 offset-md-1">
                 <div class="map_inner">
-                  <h4>Find Us on Google Map</h4>
+                  <h4>Find Us On Google Map</h4>
                   <p>Speakwell Spoken English Language Classes- Best English And Personality Development Training Institute I Best English Academy</p>
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=Speakwell+Spoken+English+Language+Classes" target="_blank">
+                    Get Directions
+                  </a>
                   <div class="map_bind">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29775.523027252115!2d79.00946707266537!3d21.11494303996961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1ddc78f4fc1%3A0x3d19bd52ea961896!2sSpeakwell%20Spoken%20English%20Language%20Classes-%20Best%20English%20And%20Personality%20Development%20Training%20Institute%20I%20Best%20English%20Academy!5e0!3m2!1sen!2sin!4v1720077364131!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29775.523027252115!2d79.00946707266537!3d21.11494303996961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1ddc78f4fc1%3A0x3d19bd52ea961896!2sSpeakwell%20Spoken%20English%20Language%20Classes!5e0!3m2!1sen!2sin!4v1720077364131!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>   
+
+        <div id="Whatsapp"></div>
       </div>
     </div>
+
+    <!-- nav script -->
+    <script>
+      document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const target = document.querySelector(this.getAttribute('href'));
+      const headerOffset = document.querySelector('.header').offsetHeight;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollBy({
+          top: offsetPosition,
+          behavior: 'smooth'
+      });
+      
+      if (window.innerWidth <= 1023) {
+              document.getElementById('menu-toggle').checked = false;
+          }
+  });
+});
+  </script>
 
     <script>
       document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -129,6 +164,18 @@
           alert('There was an error submitting the form.');
         });
       });
+
+      function updateBranchName() {
+        const selectElement = document.getElementById('branchSelect');
+        const selectedBranchName = selectElement.options[selectElement.selectedIndex].text;
+        document.getElementById('branchName').value = selectedBranchName;
+      }
+
+      fetch('/whatsapp')
+                .then(response => response.text())
+                .then(data => {
+                document.getElementById('Whatsapp').innerHTML = data;
+                });
     </script>
     
   </body>

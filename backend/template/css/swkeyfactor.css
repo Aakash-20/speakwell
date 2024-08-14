@@ -102,6 +102,15 @@
   .sl-img-23 {
     background-image: url("https://image3.jdomni.in/banner/18012021/AC/D6/40/4D2733F0AA5EC5979E05B7C0B4_1610971523554.png?output-format=webp");
   }
+  .sl-img-24 {
+    background-image: url("https://image3.jdomni.in/banner/18012021/AC/D6/40/4D2733F0AA5EC5979E05B7C0B4_1610971523554.png?output-format=webp");
+  }
+  .sl-img-25 {
+    background-image: url("https://image2.jdomni.in/library/F9/A7/3E/100A26F2DF797D5B87C9ACC081_1496335208674_cropped_450X450.jpeg");
+  }
+  .sl-img-26 {
+    background-image: url("https://image3.jdomni.in/library/2C/86/5C/C4753274ABDC20EEB38B0424C0_1496257431481_cropped_450X450.jpeg");
+  }
   .sl-gradient {
     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/614007/gradient.png");
     z-index: 1;
@@ -280,8 +289,9 @@
       overflow-y: auto;
     }
     .sl--link {
-      color: #04b7ac;
+      color: #000000;
       margin-bottom: 15px;
+      font-weight: bold;
     }
     .sl--card-nav-container {
       position: absolute;
@@ -453,3 +463,15 @@
     }
   }
   
+  .sl--link {
+    background-color: #ff8800f3; /* or any color you prefer */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10%;
+}

@@ -3,25 +3,21 @@
   color: rgb(255, 123, 0);
 }
 .contact-section {
-  font-family: 'YourFontName', sans-serif; /* Replace 'YourFontName' with the desired font */
+  font-family: 'YourFontName', sans-serif; 
 }
 
-/* Media query for screens larger than 768px (e.g., desktop) */
 @media screen and (min-width: 769px) {
   .contact-section h1 {
-    padding-top: 7%; /* Default desktop padding */
+    padding-top: 7%; 
   }
 }
 
-/* Media query for screens between 768px and 1200px */
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .contact-section h1 {
     padding-top: 17%;
   }
 }
 
-
-/* Media query for screens smaller than 768px (e.g., mobile) */
 @media screen and (max-width: 767px) {
   .contact-section h1 {
     padding-top: 10%;
@@ -53,7 +49,7 @@
 
 .contact-section .containerr {
   display: flex;
-  flex-wrap: nowrap; /* Change to wrap for smaller screens */
+  flex-wrap: nowrap; 
 }
 
 .contact-section .content {
