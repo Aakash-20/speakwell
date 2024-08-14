@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Form, HTTPException, status, Request
+from fastapi import APIRouter, Depends, Form, status, Request
 from sqlalchemy.orm import Session
 from fastapi.responses import RedirectResponse
 from db.session import get_db

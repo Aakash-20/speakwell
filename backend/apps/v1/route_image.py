@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
 from sqlalchemy.exc import IntegrityError
-from db.repository.image import is_admin
+from db.repository.admin import is_admin
 from db.models.image import Image
 from fastapi.security.utils import get_authorization_scheme_param
 from api.v1.route_login import get_current_user

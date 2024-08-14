@@ -1,17 +1,17 @@
-from fastapi import Request, Form, Query, APIRouter, Depends, Response, status
+from fastapi import Request, APIRouter, Depends, Response, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
-from db.repository.image import get_all_images_logic, get_all_images
+from db.repository.image import get_all_images_logic
 from db.repository.blog import list_blogs
 from db.repository.url import get_url_by_id
 from db.repository.address import list_addresses
 
+
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
 
-from fastapi.responses import RedirectResponse
 
 @router.get("/")
 async def redirect_to_main():
@@ -71,6 +71,7 @@ async def read_images(request: Request, db: Session = Depends(get_db)):
     images = await get_all_images_logic(db=db, request=request)
     print(images)
     return templates.TemplateResponse("gallery.html", {"request": request, "images": images})
+
 
 @router.get("/why_us")
 async def get_why_us(request: Request):

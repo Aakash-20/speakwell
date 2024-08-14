@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Request, Depends, Form, File, UploadFile, status, Response
-from fastapi.responses import HTMLResponse, RedirectResponse 
+from fastapi import APIRouter, Request, Depends, Form, File, UploadFile, status
+from fastapi.responses import RedirectResponse 
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from schemas.blog import CreateBlog
-from db.repository.blog import create_new_blog, delete_blog_by_id, list_blogs, retrieve_blog, is_admin
+from db.repository.blog import create_new_blog, delete_blog_by_id, retrieve_blog
+from db.repository.admin import is_admin
 from db.session import get_db
 from api.v1.route_login import get_current_user
 import os
@@ -16,48 +17,6 @@ router = APIRouter()
 
 UPLOAD_DIR = "template/blog/images"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
-
-
-@router.get("/blog2", response_class=HTMLResponse)
-async def read_blogs(request: Request, db: Session = Depends(get_db)):
-    try:
-        blogs = list_blogs(db=db)
-        blog_list = [
-            {
-                "id": blog.id,
-                "image": blog.image,
-                "title": blog.title,
-                "content": blog.content
-            }
-            for blog in blogs
-        ]
-        return templates.TemplateResponse("blog2.html", {"request": request, "blogs": blog_list})
-    except Exception as e:
-        return templates.TemplateResponse("error.html", {"request": request, "message": f"Error retrieving blogs: {str(e)}"})
-
-
-@router.get("/blog/{blog_id}/{slug}", response_class=HTMLResponse)
-@router.get("/blog/{blog_id}", response_class=HTMLResponse)
-async def read_blog(request: Request, blog_id: int, slug: str = None, db: Session = Depends(get_db)):
-    blog = retrieve_blog(id=blog_id, db=db)
-    
-    if blog is None:
-        return templates.TemplateResponse(
-            "error.html", {"request": request, "message": "Blog not found or an error occurred"}, status_code=404)
-    
-    blog_data = {
-        "id": blog.id,
-        "image": blog.image,
-        "title": blog.title,
-        "content": blog.content,
-        "slug": blog.slug
-    }
-    
-    # If slug is not provided or doesn't match, redirect to the correct URL
-    if slug is None or slug != blog.slug:
-        return RedirectResponse(url=f"/blog/{blog_id}/{blog.slug}", status_code=301)
-    
-    return templates.TemplateResponse("blog2.html", {"request": request, "blog": blog_data})
 
 
 @router.post("/admin/create-blog")

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, status, Form
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from db.session import get_db
 from schemas.address import AddressCreate
-from db.repository.address import create_new_address, list_addresses, remove_address
+from db.repository.address import create_new_address, remove_address
 
 
 router = APIRouter()

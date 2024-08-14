@@ -7,9 +7,9 @@ from db.session import get_db
 from schemas.user import UserCreate
 from db.repository.user import create_new_user
 from pydantic.error_wrappers import ValidationError
-
 from api.v1.route_login import authenticate_user
 from core.security import create_access_token
+
 
 templates = Jinja2Templates(directory="template")
 router = APIRouter()
