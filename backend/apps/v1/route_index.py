@@ -35,6 +35,7 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
         url = get_url_by_id(db=db, url_id=1)
         return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list, "images": images, "widget": url.url})
     except Exception as e:
+        print(repr(e))
         return templates.TemplateResponse(
             "error.html", 
             {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
