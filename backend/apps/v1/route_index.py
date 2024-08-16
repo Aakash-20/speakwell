@@ -1,7 +1,8 @@
 from fastapi import Request, APIRouter, Depends, Response, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
 from db.session import get_db
 from db.repository.image import get_all_images_logic
 from db.repository.blog import list_blogs
@@ -19,9 +20,9 @@ async def redirect_to_main():
 
 
 @router.get("/Speakwell/Nagpur/Top-English-Speaking-&-Personality-Development-Classes", response_class=HTMLResponse)
-async def read_blogs(request: Request, db: Session = Depends(get_db)):
+async def read_blogs(request: Request, db: AsyncSession = Depends(get_db)):
     try:
-        blogs = list_blogs(db=db)
+        blogs = await list_blogs(db=db)
         blog_list = [
             {
                 "id": blog.id,
@@ -32,15 +33,14 @@ async def read_blogs(request: Request, db: Session = Depends(get_db)):
             for blog in blogs
         ]
         images = await get_all_images_logic(db=db, request=request)
-        url = get_url_by_id(db=db, url_id=1)
+        url = await get_url_by_id(db=db, url_id=1)
+        if url is None:
+            return templates.TemplateResponse("index.html", {"request": request, "widget": None})
         return templates.TemplateResponse("index.html", {"request": request, "blogs": blog_list, "images": images, "widget": url.url})
     except Exception as e:
         print(repr(e))
-        return templates.TemplateResponse(
-            "error.html", 
-            {"request": request, "message": f"Error retrieving blogs: {str(e)}"}
-        )
-
+        return HTMLResponse(content="An error occurred", status_code=500)
+        
 
 @router.get("/whatsapp", response_class=HTMLResponse)
 async def read_item(request: Request):
@@ -48,8 +48,8 @@ async def read_item(request: Request):
 
 
 @router.get("/best-spoken-english-classes-in-Nagpur", response_class=HTMLResponse)
-async def get_contact_form(request: Request, db: Session = Depends(get_db)):
-    addresses = list_addresses(db=db)
+async def get_contact_form(request: Request, db: AsyncSession = Depends(get_db)):
+    addresses = await list_addresses(db=db)
     return templates.TemplateResponse("contactUs.html", {"request": request, "addresses": addresses})
 
 

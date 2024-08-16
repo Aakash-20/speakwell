@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from db.repository.admin import get_current_user
 from db.repository.blog import list_blogs
-from db.repository.image import get_all_images
+from db.repository.image import get_all_images_logic
 from sqlalchemy.orm import Session
 from db.session import get_db
 from db.repository.address import list_addresses
@@ -27,7 +27,7 @@ async def admin_home(request: Request, db: AsyncSession = Depends(get_db), user:
 
 @router.get("/admin_image", response_class=HTMLResponse)
 async def fetch_all_images(request: Request, db: AsyncSession = Depends(get_db), user: dict = Depends(get_current_user)):
-    images = await get_all_images(db=db)
+    images = await get_all_images_logic(db=db)
     return templates.TemplateResponse("admin_image.html", {"request": request, "images": images})
 
 
