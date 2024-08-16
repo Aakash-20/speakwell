@@ -12,8 +12,8 @@ from core.security import create_access_token
 router = APIRouter()
 
 
-def authenticate_user(email: str, password: str, db: Session):
-    user = get_user_by_email(email=email, db=db)
+async def authenticate_user(email: str, password: str, db: Session):
+    user = await get_user_by_email(email=email, db=db)
     print(user)
     if not user:
         return False
@@ -24,7 +24,7 @@ def authenticate_user(email: str, password: str, db: Session):
 
 @router.post("/token")
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = authenticate_user(form_data.username, form_data.password, db)
+    user = await authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -33,23 +33,22 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     access_token = create_access_token(data={"sub": user.email})
     return {"access_token": access_token, "token_type": "bearer"}
 
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
 
-def get_current_user(token: str = Depends(oauth2_scheme), db : Session = Depends(get_db)):
+async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
-        status_code= status.HTTP_401_UNAUTHORIZED,
-        detail= "Could not validate credential, please login again"
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credential, please login again"
     )
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
-        email : str = payload.get("sub")
+        email: str = payload.get("sub")
         if email is None:
             raise credentials_exception
     except JWTError:
         raise credentials_exception
-    user = get_user_by_email(email=email, db=db)
+    user = await get_user_by_email(email=email, db=db)
     if user is None:
         raise credentials_exception
     return user

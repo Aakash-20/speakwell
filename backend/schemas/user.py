@@ -9,7 +9,6 @@ class UserCreate(BaseModel):
 class ShowUser(BaseModel): 
     id : int 
     email : EmailStr
-    is_active : bool
 
     class Config():
         from_attributes = True
