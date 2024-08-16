@@ -1,9 +1,10 @@
 from sqlalchemy.orm import Session
 from db.models.image import Image
-from sqlalchemy import desc
 from schemas.image import ImageListResponse
 from typing import List
 from fastapi import Request
+from sqlalchemy import select, desc
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 IMAGEDIR = "template/gallery"
@@ -27,8 +28,11 @@ async def get_all_images_logic(request: Request, db: Session) -> List[ImageListR
     return image_list
 
 
-def get_all_images(db: Session) -> List[dict]:
-    db_images = db.query(Image).order_by(desc(Image.created_at)).all()
+
+
+async def get_all_images(db: AsyncSession) -> List[dict]:
+    result = await db.execute(select(Image).order_by(desc(Image.created_at)))
+    db_images = result.scalars().all()
     return [
         {
             "id": image.id,
@@ -37,5 +41,4 @@ def get_all_images(db: Session) -> List[dict]:
         }
         for image in db_images
     ]
-
 

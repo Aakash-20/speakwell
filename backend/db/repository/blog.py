@@ -1,10 +1,12 @@
 from typing import Optional, List, Dict
 from sqlalchemy.orm import Session
-from sqlalchemy import desc
+from sqlalchemy import desc, select
 from schemas.blog import CreateBlog
 import os
 from db.models.blog import Blog
 from urllib.parse import urlparse
+from sqlalchemy.ext.asyncio import AsyncSession
+
 
 
 UPLOAD_DIR = "template/blog/images"
@@ -29,9 +31,11 @@ def retrieve_blog(id: int, db: Session) -> Optional[Blog]:
     return db.query(Blog).filter(Blog.id == id).first()
 
 
-def list_blogs(db: Session) -> List[Blog]:
-    return db.query(Blog).order_by(desc(Blog.created_at)).limit(10).all()
 
+
+async def list_blogs(db: AsyncSession) -> List[Blog]:
+    result = await db.execute(select(Blog).order_by(desc(Blog.created_at)).limit(10))
+    return result.scalars().all()
 
 def delete_blog_by_id(id: int, db: Session, author_id: int) -> Dict[str, str]:
     blog_in_db = db.query(Blog).filter(Blog.id == id).first()
