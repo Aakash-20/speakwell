@@ -40,13 +40,13 @@ def login(request: Request):
 
 
 @router.post("/login")
-def login(request: Request,
+async def login(request: Request,
     email: str = Form(...),
     password: str = Form(...),
     db: Session = Depends(get_db),
 ):
     errors = []
-    user = authenticate_user(email=email,password=password,db=db)
+    user = await authenticate_user(email=email,password=password,db=db)
     if not user:
         errors.append("Incorrect email or password")
         return templates.TemplateResponse("login.html", {"request": request,"errors":errors})

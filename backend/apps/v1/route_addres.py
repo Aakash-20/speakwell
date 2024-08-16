@@ -15,6 +15,7 @@ async def create_address(address: str = Form(...), db: AsyncSession = Depends(ge
     await create_new_address(address_create, db)
     return RedirectResponse(url="/admin_contact", status_code=status.HTTP_303_SEE_OTHER)
 
+
 @router.get("/remove_address/{address_id}")
 async def delete_address(address_id: int, db: AsyncSession = Depends(get_db)):
     await remove_address(address_id, db)

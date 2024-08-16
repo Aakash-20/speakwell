@@ -27,7 +27,7 @@ async def admin_home(request: Request, db: AsyncSession = Depends(get_db), user:
 
 @router.get("/admin_image", response_class=HTMLResponse)
 async def fetch_all_images(request: Request, db: AsyncSession = Depends(get_db), user: dict = Depends(get_current_user)):
-    images = await get_all_images_logic(db=db)
+    images = await get_all_images_logic(request=request, db=db)
     return templates.TemplateResponse("admin_image.html", {"request": request, "images": images})
 
 
