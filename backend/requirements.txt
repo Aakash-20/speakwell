@@ -2,7 +2,6 @@ fastapi==0.100.0
 uvicorn==0.22.0 
 
 SQLAlchemy==2.0.31
-psycopg2-binary
 
 python-dotenv==1.0.0
 
@@ -21,3 +20,4 @@ python-multipart
 
 Jinja2
 aiofiles
+asyncpg
