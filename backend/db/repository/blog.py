@@ -5,6 +5,7 @@ from schemas.blog import CreateBlog
 import os
 from db.models.blog import Blog
 from urllib.parse import urlparse
+from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -13,7 +14,7 @@ UPLOAD_DIR = "template/blog/images"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
-def create_new_blog(blog: CreateBlog, db: Session, author_id: int, image_url: Optional[str] = None) -> Blog:
+async def create_new_blog(blog: CreateBlog, db: Session, author_id: int, image_url: Optional[str] = None) -> Blog:
     new_blog = Blog(
         title=blog.title,
         content=blog.content,
@@ -22,27 +23,25 @@ def create_new_blog(blog: CreateBlog, db: Session, author_id: int, image_url: Op
         image=image_url
     )
     db.add(new_blog)
-    db.commit()
-    db.refresh(new_blog)
+    await db.commit()
+    await db.refresh(new_blog)
     return new_blog
 
-
-def retrieve_blog(id: int, db: Session) -> Optional[Blog]:
-    return db.query(Blog).filter(Blog.id == id).first()
-
-
-
+async def retrieve_blog(id: int, db: AsyncSession) -> Optional[Blog]:
+    result = await db.execute(select(Blog).filter(Blog.id == id))
+    return result.scalar_one_or_none()
 
 async def list_blogs(db: AsyncSession) -> List[Blog]:
     result = await db.execute(select(Blog).order_by(desc(Blog.created_at)).limit(10))
     return result.scalars().all()
 
-def delete_blog_by_id(id: int, db: Session, author_id: int) -> Dict[str, str]:
-    blog_in_db = db.query(Blog).filter(Blog.id == id).first()
+async def delete_blog_by_id(id: int, db: AsyncSession, author_id: int) -> Dict[str, str]:
+    result = await db.execute(select(Blog).filter(Blog.id == id))
+    blog_in_db = result.scalar_one_or_none()
     if not blog_in_db:
-        return {"error": f"Could not find blog with the id {id}"}
+        raise HTTPException(status_code=404, detail=f"Could not find blog with the id {id}")
     if blog_in_db.author_id != author_id:
-        return {"error": "Only the author can delete the blog"}
+        raise HTTPException(status_code=403, detail="Only the author can delete the blog")
     
     if blog_in_db.image:
         parsed_url = urlparse(blog_in_db.image)
@@ -51,8 +50,6 @@ def delete_blog_by_id(id: int, db: Session, author_id: int) -> Dict[str, str]:
         if os.path.exists(file_path):
             os.remove(file_path)
     
-    db.delete(blog_in_db)
-    db.commit()
+    await db.delete(blog_in_db)
+    await db.commit()
     return {"msg": f"Deleted blog with id {id}"}
-
-

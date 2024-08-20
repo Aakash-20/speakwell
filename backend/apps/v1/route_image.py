@@ -23,7 +23,7 @@ async def create_upload_file(request: Request, file: UploadFile = File(...), db:
     token = request.cookies.get("access_token")
     _, token = get_authorization_scheme_param(token)
     try:
-        current_user = get_current_user(token=token, db=db)
+        current_user = await get_current_user(token=token, db=db)
         if not is_admin(current_user.id):
             return RedirectResponse(
                 url="/admin_index?message=You do not have permission to upload image",
@@ -54,11 +54,11 @@ async def create_upload_file(request: Request, file: UploadFile = File(...), db:
 
 
 @router.get("/admin_image/delete/{image_id}")
-def delete_image(request: Request, image_id: int, db: Session = Depends(get_db)):
+async def delete_image(request: Request, image_id: int, db: Session = Depends(get_db)):
     token = request.cookies.get("access_token")
     _, token = get_authorization_scheme_param(token)
     try:
-        current_user = get_current_user(token=token, db=db)
+        current_user = await get_current_user(token=token, db=db)
         if not is_admin(current_user.id):
             return RedirectResponse(
                 url="/admin_index?message=You do not have permission to delete image",

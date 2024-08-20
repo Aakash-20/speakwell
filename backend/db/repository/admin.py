@@ -7,7 +7,7 @@ from core.config import settings
 from jose import jwt, JWTError
 
 
-def get_current_user(request: Request, db: Session = Depends(get_db)):
+async def get_current_user(request: Request, db: Session = Depends(get_db)):
     token = request.cookies.get("access_token")
     if not token:
         raise HTTPException(status_code=status.HTTP_302_FOUND, detail="Not authenticated", headers={"Location": "/login"})
@@ -22,7 +22,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)):
     except JWTError:
         raise HTTPException(status_code=status.HTTP_302_FOUND, detail="Not authenticated", headers={"Location": "/login"})
 
-    user = get_user_by_email(email=email, db=db)
+    user = await get_user_by_email(email=email, db=db)
     if user is None:
         raise HTTPException(status_code=status.HTTP_302_FOUND, detail="Not authenticated", headers={"Location": "/login"})
     return user
