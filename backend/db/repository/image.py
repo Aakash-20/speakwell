@@ -5,9 +5,11 @@ from fastapi import Request
 from sqlalchemy import select, desc
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.models.image import Image
+import os
 
 
 IMAGEDIR = "template/gallery"
+os.makedirs(IMAGEDIR, exist_ok=True)
 
 
 async def get_all_images_logic(request: Request, db: AsyncSession) -> List[ImageListResponse]:

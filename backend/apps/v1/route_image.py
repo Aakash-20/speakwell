@@ -12,12 +12,12 @@ import os
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
-
 router = APIRouter()
 templates = Jinja2Templates(directory="template")
 
 
 IMAGEDIR = "template/gallery"
+os.makedirs(IMAGEDIR, exist_ok=True)
 
 
 @router.post("/upload", response_class=HTMLResponse)
